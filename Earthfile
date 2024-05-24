@@ -7,8 +7,6 @@ install:
   RUN rustup component add clippy rustfmt
   RUN rustup target add wasm32-unknown-unknown
 
-  RUN cargo install wasm-opt@0.116.1
-
   # Call +INIT before copying the source file to avoid installing function depencies every time source code changes
   # This parametrization will be used in future calls to functions of the library
   DO rust+INIT --keep_fingerprints=true
@@ -17,7 +15,8 @@ install:
 source:
   FROM +install
   COPY --keep-ts Cargo.toml Cargo.lock ./
-  COPY --keep-ts --chmod 755 docker/optimize.sh ./optimize.sh
+  COPY --keep-ts --chmod 755 docker/run-washopt.sh ./run-washopt.sh
+  COPY --keep-ts --chmod 755 docker/download-wasmopt.sh ./download-wasmopt.sh
   COPY --keep-ts --dir block_party shielding_party staking_party shielding_reward_party  ./
 
 # lint runs cargo clippy on the source code
@@ -34,7 +33,8 @@ check:
 build:
   FROM +lint
   DO rust+CARGO --args="build --release --target wasm32-unknown-unknown" --output="wasm32-unknown-unknown\/release\/[a-zA-Z_]+\.wasm"
-  RUN ./optimize.sh
+  RUN ./download-wasmopt.sh
+  RUN ./run-washopt.sh
   SAVE ARTIFACT ./target/wasm32-unknown-unknown/release AS LOCAL artifacts
 
 # test executes all unit and integration tests via Cargo
