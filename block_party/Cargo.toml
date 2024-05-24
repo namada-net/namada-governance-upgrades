@@ -10,6 +10,8 @@ version.workspace = true
 
 [dependencies]
 namada_tx_prelude.workspace = true
+namada_core.workspace = true
+namada_proof_of_stake.workspace = true
 wee_alloc.workspace = true
 getrandom.workspace = true
 

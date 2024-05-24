@@ -1,6 +1,31 @@
+use dec::Dec;
 use namada_tx_prelude::*;
 
-#[transaction]
-fn apply_tx(_ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
+use std::str::FromStr;
+
+use namada_proof_of_stake::storage::{read_pos_params, write_pos_params};
+
+#[transaction(gas = 10000)]
+fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
+    // PoS inflation
+    let mut pos_params = read_pos_params(ctx)?.owned;
+    pos_params.max_inflation_rate = Dec::from_str("0.1").unwrap();
+    pos_params.target_staked_ratio = Dec::from_str("0.666667").unwrap();
+    pos_params.rewards_gain_p = Dec::from_str("2.5").unwrap();
+    pos_params.rewards_gain_d = Dec::from_str("2.5").unwrap();
+    write_pos_params(ctx, &pos_params)?;
+
+    // PGF inflation
+    let pgf_inflation_key =
+        governance::pgf::storage::keys::get_pgf_inflation_rate_key();
+    let pgf_inflation_rate = Dec::from_str("0.025").unwrap(); // set PGF inflaton inflation to 2.5% 
+    ctx.write(&pgf_inflation_key, pgf_inflation_rate)?;
+
+    // PGF stewards inflation
+    let steward_inflation_key =
+        governance::pgf::storage::keys::get_steward_inflation_rate_key();
+    let steward_inflation_rate = Dec::from_str("0.001").unwrap(); // set PGF stewards inflation to 0.01% 
+    ctx.write(&steward_inflation_key, steward_inflation_rate)?;
+
     Ok(())
 }
