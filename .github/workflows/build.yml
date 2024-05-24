@@ -35,9 +35,5 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Build (pr)
-      if: ${{ github.event_name == 'pull_request' }}
+    - name: Run Build
       run: earthly --org heliax --sat namada-governance-upgrades --ci +build
-    - name: Run build (main)
-      if: ${{ github.ref == 'refs/heads/main' }}
-      run: earthly --org heliax --sat namada-governance-upgrades --ci --push +build
