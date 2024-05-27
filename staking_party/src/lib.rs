@@ -13,11 +13,6 @@ const TX_TRANSFER_BYTES: &[u8] = include_bytes!(
     "../../wasms/tx_transfer.8198890dbdf67bc93b16492496413c8140a273465f0f8f3ae091e5949a5ac4e0.wasm"
 );
 
-const TX_IBC_NAME: &str = "tx_ibc.wasm";
-const TX_IBC_BYTES: &[u8] = include_bytes!(
-    "../../wasms/tx_ibc.2fac9cb9797cb01104cfe67f7b9693c76d9dfcad7e01f894fcbc0a7675bcb184.wasm"
-);
-
 const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 2] = [
     (
         "channel-0",
@@ -55,8 +50,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
     // Update the allowlist and write the addition wasm storage keys per transaction
     for (wasm_name, wasm_bytes) in [
-        (TX_TRANSFER_NAME, TX_TRANSFER_BYTES),
-        (TX_IBC_NAME, TX_IBC_BYTES),
+        (TX_TRANSFER_NAME, TX_TRANSFER_BYTES)
     ] {
         let tx_hash = CodeHash::sha256(wasm_bytes);
 

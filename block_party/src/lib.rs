@@ -34,12 +34,12 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
     // PGF inflation
     let pgf_inflation_key = governance::pgf::storage::keys::get_pgf_inflation_rate_key();
-    let pgf_inflation_rate = Dec::from_str("0.025").unwrap(); // set PGF inflaton inflation to 2.5%
+    let pgf_inflation_rate = Dec::from_str("0.025").unwrap(); 
     ctx.write(&pgf_inflation_key, pgf_inflation_rate)?;
 
     // PGF stewards inflation
     let steward_inflation_key = governance::pgf::storage::keys::get_steward_inflation_rate_key();
-    let steward_inflation_rate = Dec::from_str("0.001").unwrap(); // set PGF stewards inflation to 0.01%
+    let steward_inflation_rate = Dec::from_str("0.001").unwrap(); 
     ctx.write(&steward_inflation_key, steward_inflation_rate)?;
 
     // Read the current transaction allowlist from storage
@@ -61,6 +61,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     ] {
         let tx_hash = CodeHash::sha256(wasm_bytes);
 
+        // make the update idempotent 
         if current_tx_allowlist.contains(&tx_hash.to_string()) {
             continue;
         }
