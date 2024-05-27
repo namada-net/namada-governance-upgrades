@@ -83,3 +83,4 @@ rust-project.json
 # End of https://www.toptal.com/developers/gitignore/api/osx,macos,git,rust,rust-analyzer
 
 artifacts
+wasms/*.wasm

@@ -20,6 +20,7 @@ namada_proof_of_stake = { git = "https://github.com/anoma/namada", tag = "v0.36.
 namada_core = { git = "https://github.com/anoma/namada", tag = "v0.36.1" }
 wee_alloc = "0.4.5"
 getrandom = { version = "0.2", features = ["custom"] }
+lazy_static = "1.4.0"
 
 [profile.release]
 lto = true

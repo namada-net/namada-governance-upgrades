@@ -14,16 +14,16 @@ The reference code can be found in [block_party folder](./block_party/).
 
 Transparent and shielded transfers of governance-enabled IBC assets are live. Users can begin shielding assets in the unified shielded set. NAM transfers remain locked until phase 5. Phase 4 will begin when governance votes to enable shielding rewards.
 
-The reference code can be found in [block_party folder](./staking_party/).
+The reference code can be found in [staking_party folder](./staking_party/).
 
 ## Shielding party -> Shielding Reward party
 
 Shielding rewards for governance-enabled IBC assets are live. Users begin collecting rewards for shielding assets, which protects their data and helps strengthen Namada’s unified shielded set. Phase 5 will begin when governance votes to enable NAM transfers.
 
-The reference code can be found in [block_party folder](./shielding_party/).
+The reference code can be found in [shielding_party folder](./shielding_party/).
 
 ## Shielding Reward party -> NAM Party
 
 When the Namada community is confident that the network is stable, NAM transfers are enabled. All key protocol functionality is now live. From here on, new features and support for new assets can continue to be added by the community via on-chain governance.
 
-The reference code can be found in [block_party folder](./shielding_reward_party/).
+The reference code can be found in [shielding_reward_party folder](./shielding_reward_party/).
