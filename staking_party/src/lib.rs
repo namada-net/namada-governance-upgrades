@@ -1,7 +1,9 @@
 use hash::Hash as CodeHash;
 use namada_tx_prelude::*;
-use std::str::FromStr;
 use storage::Key;
+
+pub type ChannelId = &'static str;
+pub type BaseToken = &'static str;
 
 pub type MintTokenLimit = token::Amount;
 pub type ThroughtputTokenLimit = token::Amount;
@@ -16,14 +18,16 @@ const TX_IBC_BYTES: &[u8] = include_bytes!(
     "../../wasms/tx_ibc.2fac9cb9797cb01104cfe67f7b9693c76d9dfcad7e01f894fcbc0a7675bcb184.wasm"
 );
 
-const IBC_TOKENS: [(&'static str, MintTokenLimit, ThroughtputTokenLimit); 2] = [
+const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 2] = [
     (
-        "ibc-token-address-1",
+        "channel-0",
+        "tnam1q....",
         MintTokenLimit::from_u64(1000),
         ThroughtputTokenLimit::from_u64(10000),
     ),
     (
-        "ibc-token-address-2",
+        "channel-1",
+        "tnam1q....",
         MintTokenLimit::from_u64(2000),
         ThroughtputTokenLimit::from_u64(13000),
     ),
@@ -31,9 +35,11 @@ const IBC_TOKENS: [(&'static str, MintTokenLimit, ThroughtputTokenLimit); 2] = [
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
-    // enable IBC deposit/withdraws limits
-    for (token, mint_limit, throughput_limit) in IBC_TOKENS {
-        let token_address = Address::from_str(token).unwrap();
+    // Enable IBC deposit/withdraws limits
+    for (channel_id, base_token, mint_limit, throughput_limit) in IBC_TOKENS {
+        let ibc_denom = format!("transfer/{channel_id}/{base_token}");
+        let token_address = ibc::ibc_token(&ibc_denom);
+
         let mint_limit_token_key = ibc::mint_limit_key(&token_address);
         ctx.write(&mint_limit_token_key, mint_limit)?;
 
@@ -52,7 +58,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         (TX_TRANSFER_NAME, TX_TRANSFER_BYTES),
         (TX_IBC_NAME, TX_IBC_BYTES),
     ] {
-        let tx_hash = CodeHash::sha256(&wasm_bytes);
+        let tx_hash = CodeHash::sha256(wasm_bytes);
 
         if current_tx_allowlist.contains(&tx_hash.to_string()) {
             continue;
@@ -75,6 +81,6 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
     // Write the update allowlist back to storage
     ctx.write(&tx_allowlist_key, current_tx_allowlist)?;
-    
+
     Ok(())
 }

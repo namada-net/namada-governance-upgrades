@@ -44,20 +44,25 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
     // Read the current transaction allowlist from storage
     let tx_allowlist_key = parameters_storage::get_tx_allowlist_storage_key();
-    let mut current_tx_allowlist = ctx.read::<Vec<String>>(&tx_allowlist_key)?.unwrap_or_default();
+    let mut current_tx_allowlist = ctx
+        .read::<Vec<String>>(&tx_allowlist_key)?
+        .unwrap_or_default();
 
     // Update the allowlist and write the addition wasm storage keys per transaction
     for (wasm_name, wasm_bytes) in [
         (TX_UPDATE_ACCOUNT_NAME, TX_UPDATE_ACCOUNT_BYTES),
         (TX_INIT_ACCOUNT_NAME, TX_INIT_ACCOUNT_BYTES),
         (TX_CLAIM_REWARDS_NAME, TX_CLAIM_REWARDS_BYTES),
-        (TX_UPDATE_STEWARD_COMMISSION_NAME, TX_UPDATE_STEWARD_COMMISSION_BYTES),
+        (
+            TX_UPDATE_STEWARD_COMMISSION_NAME,
+            TX_UPDATE_STEWARD_COMMISSION_BYTES,
+        ),
         (TX_RESIGN_STEWARD_NAME, TX_RESIGN_STEWARD_BYTES),
     ] {
-        let tx_hash = CodeHash::sha256(&wasm_bytes);
+        let tx_hash = CodeHash::sha256(wasm_bytes);
 
         if current_tx_allowlist.contains(&tx_hash.to_string()) {
-            continue
+            continue;
         }
 
         let wasm_name_key = Key::wasm_code_name(wasm_name.to_string());
@@ -72,9 +77,8 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let len_key = Key::wasm_code_len(&tx_hash);
         ctx.write(&len_key, wasm_bytes.len())?;
 
-
         current_tx_allowlist.push(tx_hash.to_string());
-    };
+    }
 
     // Write the update allowlist back to storage
     ctx.write(&tx_allowlist_key, current_tx_allowlist)?;
