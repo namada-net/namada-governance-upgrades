@@ -39,9 +39,12 @@ const IBC_TOKENS: [(
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
+    // Enable NAM transfers
     let native_token_transferable_key = parameters_storage::get_native_token_transferable_key();
     ctx.write(&native_token_transferable_key, true)?;
 
+    // Enable NAM to be transferable via IBC
+    // Enable NAM to get MASP rewards
     for (
         denomination,
         channel_id,

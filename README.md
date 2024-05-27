@@ -27,3 +27,11 @@ The reference code can be found in [shielding_party folder](./shielding_party/).
 When the Namada community is confident that the network is stable, NAM transfers are enabled. All key protocol functionality is now live. From here on, new features and support for new assets can continue to be added by the community via on-chain governance.
 
 The reference code can be found in [shielding_reward_party folder](./shielding_reward_party/).
+
+# How to build 
+To generate the wasm artifacts that can be attached to the governance proposal, run:
+```
+earhtly +build
+```
+
+You can install `earthly` following the official guide [here](https://earthly.dev/get-earthly).
