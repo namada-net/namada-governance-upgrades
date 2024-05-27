@@ -3,10 +3,10 @@ use std::str::FromStr;
 use dec::Dec;
 use namada_tx_prelude::*;
 
-pub const NAM_MAX_REWARD: &'static str = "0.01";
-pub const NAM_TARGET_LOCKED_AMOUNT: &'static str = "1_000_000_000";
-pub const KP_GAIN: &'static str = "120000";
-pub const KD_GAIN: &'static str = "120000";
+pub const NAM_MAX_REWARD: &str = "0.01";
+pub const NAM_TARGET_LOCKED_AMOUNT: &str = "1_000_000_000";
+pub const KP_GAIN: &str = "120000";
+pub const KD_GAIN: &str = "120000";
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
