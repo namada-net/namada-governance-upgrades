@@ -15,9 +15,9 @@ install:
 source:
   FROM +install
   COPY --keep-ts Cargo.toml Cargo.lock ./
-  COPY --keep-ts --chmod 755 docker/run-washopt.sh ./run-washopt.sh
+  COPY --keep-ts --chmod 755 docker/run-wasmopt.sh ./run-wasmopt.sh
   COPY --keep-ts --chmod 755 docker/download-wasmopt.sh ./download-wasmopt.sh
-  COPY --keep-ts --dir block_party shielding_party staking_party shielding_reward_party  ./
+  COPY --keep-ts --dir block_party shielding_party staking_party shielding_reward_party wasms ./
 
 # lint runs cargo clippy on the source code
 lint:
@@ -34,7 +34,7 @@ build:
   FROM +lint
   DO rust+CARGO --args="build --release --target wasm32-unknown-unknown" --output="wasm32-unknown-unknown\/release\/[a-zA-Z_]+\.wasm"
   RUN ./download-wasmopt.sh
-  RUN ./run-washopt.sh
+  RUN ./run-wasmopt.sh
   SAVE ARTIFACT ./target/wasm32-unknown-unknown/release AS LOCAL artifacts
 
 # test executes all unit and integration tests via Cargo
