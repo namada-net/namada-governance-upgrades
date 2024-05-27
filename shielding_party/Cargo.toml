@@ -1,6 +1,6 @@
 [package]
 name = "shielding_party"
-description = "WASM transaction to transition from phase 3 to phase 4 of namada mainnet."
+description = "WASM transaction to transition from phase 3 to phase 4 of Namada mainnet."
 authors.workspace = true
 edition.workspace = true
 license.workspace = true

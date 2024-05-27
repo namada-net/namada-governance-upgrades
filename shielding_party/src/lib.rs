@@ -42,6 +42,44 @@ const IBC_TOKENS: [(
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
+    // Read the current MASP token map
+    let token_map_key = token::storage_key::masp_token_map_key();
+    let mut token_map = ctx.read::<masp::TokenMap>(&token_map_key)?.unwrap_or_default().clone();
+
+    let nam_address = ctx.get_native_token()?;
+
+    // Add native token to token map
+    token_map.insert("nam".to_string(), nam_address.clone());
+
+    let shielded_native_token_last_inflation_key =
+        token::storage_key::masp_last_inflation_key(&nam_address);
+    let shielded_native_token_last_locked_amount_key =
+        token::storage_key::masp_last_locked_amount_key(&nam_address);
+    let shielded_native_token_max_rewards_key =
+        token::storage_key::masp_max_reward_rate_key(&nam_address);
+    let shielded_native_token_target_locked_amount_key =
+        token::storage_key::masp_locked_amount_target_key(&nam_address);
+    let shielded_native_token_kp_gain_key = token::storage_key::masp_kp_gain_key(&nam_address);
+    let shielded_native_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&nam_address);
+
+    // Setup native token shielded set rewards to 0
+    ctx.write(&shielded_native_token_last_inflation_key, token::Amount::zero())?;
+    ctx.write(
+        &shielded_native_token_last_locked_amount_key,
+        token::Amount::zero(),
+    )?;
+    ctx.write(
+        &shielded_native_token_max_rewards_key,
+        Dec::from_str("0").unwrap(),
+    )?;
+    ctx.write(
+        &shielded_native_token_target_locked_amount_key,
+        token::Amount::from_uint("0", 6).unwrap(),
+    )?;
+    ctx.write(&shielded_native_token_kp_gain_key, Dec::from_str("0").unwrap())?;
+    ctx.write(&shielded_native_token_kd_gain_key, Dec::from_str("0").unwrap())?;
+
+    // Enable shielded set rewards for ibc tokens
     for (denomination, channel_id, base_token, max_reward, target_locked_amount, kp, kd) in
         IBC_TOKENS
     {
@@ -58,12 +96,9 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
             token::storage_key::masp_locked_amount_target_key(&token_address);
         let shielded_token_kp_gain_key = token::storage_key::masp_kp_gain_key(&token_address);
         let shielded_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&token_address);
-        let token_map_key = token::storage_key::masp_token_map_key();
 
         // Add the ibc token to the masp token map
-        let mut token_map: masp::TokenMap = ctx.read(&token_map_key)?.unwrap_or_default();
         token_map.insert(ibc_denom, token_address);
-        ctx.write(&token_map_key, token_map)?;
 
         // Write the MASP inflation keys
         ctx.write(&shielded_token_last_inflation_key, token::Amount::zero())?;
@@ -82,6 +117,8 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         ctx.write(&shielded_token_kp_gain_key, Dec::from_str(kp).unwrap())?;
         ctx.write(&shielded_token_kd_gain_key, Dec::from_str(kd).unwrap())?;
     }
+
+    ctx.write(&token_map_key, token_map)?;
 
     Ok(())
 }

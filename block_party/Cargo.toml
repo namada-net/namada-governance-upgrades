@@ -1,6 +1,6 @@
 [package]
 name = "block_party"
-description = "WASM transaction to transition from phase 1 to phase 2 of namada mainnet."
+description = "WASM transaction to transition from phase 1 to phase 2 of Namada mainnet."
 authors.workspace = true
 edition.workspace = true
 license.workspace = true
