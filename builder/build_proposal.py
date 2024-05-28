@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 
+
 GOVERNANCE_GENESIS_PARAMETERS = {
     "max_proposal_code_size": 300000,
     "min_proposal_voting_period": 3,
@@ -13,10 +14,11 @@ GOVERNANCE_GENESIS_PARAMETERS = {
     "max_proposal_latency": 30
 }
 
+
 def validate_data(data: Dict[str, str]) -> bool:
     start_epoch = data['voting_start_epoch']
     end_epoch = data['voting_end_epoch']
-    activation_epoch = data['grace_epoch']
+    activation_epoch = data['activation_epoch']
     proposal_content = len(json.dumps(data))
     wasm_size = os.path.getsize(data['wasm_path']) / 1024 # in kibibytes
 
@@ -42,8 +44,6 @@ def validate_data(data: Dict[str, str]) -> bool:
     
     return True
 
-
-
 def build_proposal(
     content: Dict[str, str],
     author: str,
@@ -57,7 +57,7 @@ def build_proposal(
             "author": author,
             "voting_start_epoch": start_epoch,
             "voting_end_epoch": end_epoch,
-            "grace_epoch": activation_epoch
+            "activation_epoch": activation_epoch
         },
         "data": list(open(data_path, "rb").read())
     }
@@ -109,7 +109,7 @@ def main(data_path: str, output_path: str):
         data["author"],
         data["voting_start_epoch"],
         data["voting_end_epoch"],
-        data["grace_epoch"],
+        data["activation_epoch"],
         data["wasm_path"],
     )
 
