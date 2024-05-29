@@ -75,7 +75,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     )?;
     ctx.write(
         &shielded_native_token_max_rewards_key,
-        Dec::from_str("0.0").unwrap(),
+        Dec::zero(),
     )?;
     ctx.write(
         &shielded_native_token_target_locked_amount_key,
@@ -83,11 +83,11 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     )?;
     ctx.write(
         &shielded_native_token_kp_gain_key,
-        Dec::from_str("0.0").unwrap(),
+        Dec::zero(),
     )?;
     ctx.write(
         &shielded_native_token_kd_gain_key,
-        Dec::from_str("0.0").unwrap(),
+        Dec::zero(),
     )?;
 
     // Enable shielded set rewards for ibc tokens
