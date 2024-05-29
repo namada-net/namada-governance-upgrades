@@ -28,7 +28,7 @@ const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit)
     ),
 ];
 
-#[transaction(gas = 10000)]
+#[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Enable IBC deposit/withdraws limits
     for (channel_id, base_token, mint_limit, throughput_limit) in IBC_TOKENS {

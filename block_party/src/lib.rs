@@ -10,7 +10,7 @@ use namada_proof_of_stake::storage::{read_pos_params, write_pos_params};
 const TX_CLAIM_REWARDS_NAME: &str = "tx_claim_rewards.wasm";
 const TX_CLAIM_REWARDS_BYTES: &[u8] = include_bytes!("../../wasms/tx_claim_rewards.af4cd35b30f17cf2440be74bedeb74296aac21e4ab1ea7143f3a3dede722a0ed.wasm");
 
-#[transaction(gas = 10000)]
+#[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // PoS inflation
     let mut pos_params = read_pos_params(ctx)?.owned;

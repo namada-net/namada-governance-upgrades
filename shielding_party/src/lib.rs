@@ -40,7 +40,7 @@ const IBC_TOKENS: [(
     ),
 ];
 
-#[transaction(gas = 10000)]
+#[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Read the current MASP token map
     let token_map_key = token::storage_key::masp_token_map_key();
