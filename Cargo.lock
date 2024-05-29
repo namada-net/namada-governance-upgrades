@@ -1867,7 +1867,7 @@ checksum = "defc4c55412d89136f966bbb339008b474350e5e6e78d2714439c386b3137a03"
 [[package]]
 name = "namada_account"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1879,7 +1879,7 @@ dependencies = [
 [[package]]
 name = "namada_controller"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "namada_core",
  "smooth-operator",
@@ -1889,7 +1889,7 @@ dependencies = [
 [[package]]
 name = "namada_core"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "bech32",
  "borsh 1.5.0",
@@ -1932,7 +1932,7 @@ dependencies = [
 [[package]]
 name = "namada_events"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1946,7 +1946,7 @@ dependencies = [
 [[package]]
 name = "namada_gas"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1959,7 +1959,7 @@ dependencies = [
 [[package]]
 name = "namada_governance"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "itertools",
@@ -1980,7 +1980,7 @@ dependencies = [
 [[package]]
 name = "namada_ibc"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "ibc",
@@ -2010,7 +2010,7 @@ dependencies = [
 [[package]]
 name = "namada_macros"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "data-encoding",
  "proc-macro2",
@@ -2022,7 +2022,7 @@ dependencies = [
 [[package]]
 name = "namada_merkle_tree"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "eyre",
@@ -2037,7 +2037,7 @@ dependencies = [
 [[package]]
 name = "namada_parameters"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -2049,7 +2049,7 @@ dependencies = [
 [[package]]
 name = "namada_proof_of_stake"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "data-encoding",
@@ -2074,7 +2074,7 @@ dependencies = [
 [[package]]
 name = "namada_replay_protection"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "namada_core",
 ]
@@ -2082,7 +2082,7 @@ dependencies = [
 [[package]]
 name = "namada_shielded_token"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2100,7 +2100,7 @@ dependencies = [
 [[package]]
 name = "namada_state"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "ics23",
@@ -2126,7 +2126,7 @@ dependencies = [
 [[package]]
 name = "namada_storage"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "itertools",
@@ -2144,7 +2144,7 @@ dependencies = [
 [[package]]
 name = "namada_token"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -2156,7 +2156,7 @@ dependencies = [
 [[package]]
 name = "namada_trans_token"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "konst",
  "namada_core",
@@ -2167,7 +2167,7 @@ dependencies = [
 [[package]]
 name = "namada_tx"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "ark-bls12-381",
  "bitflags",
@@ -2193,7 +2193,7 @@ dependencies = [
 [[package]]
 name = "namada_tx_env"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -2203,7 +2203,7 @@ dependencies = [
 [[package]]
 name = "namada_tx_prelude"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2227,7 +2227,7 @@ dependencies = [
 [[package]]
 name = "namada_vm_env"
 version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/export-ibc-storage-keys-to-wasm#c75f3e253314b90a53b85a81a7ceba68c2fef122"
+source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2599,9 +2599,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.83"
+version = "1.0.84"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0b33eb56c327dec362a9e55b3ad14f9d2f0904fb5a5b03b513ab5465399e9f43"
+checksum = "ec96c6a92621310b51366f1e28d05ef11489516e93be030060e5fc12024a49d6"
 dependencies = [
  "unicode-ident",
 ]
@@ -2879,9 +2879,9 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.202"
+version = "1.0.203"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "226b61a0d411b2ba5ff6d7f73a476ac4f8bb900373459cd00fab8512828ba395"
+checksum = "7253ab4de971e72fb7be983802300c30b5a7f0c2e56fab8abfc6a214307c0094"
 dependencies = [
  "serde_derive",
 ]
@@ -2906,9 +2906,9 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.202"
+version = "1.0.203"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6048858004bcff69094cd972ed40a32500f153bd3be9f716b2eed2e8217c4838"
+checksum = "500cbc0ebeb6f46627f50f3f5811ccf6bf00643be300b4c3eabc0ef55dc5b5ba"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3647,9 +3647,9 @@ dependencies = [
 
 [[package]]
 name = "zeroize"
-version = "1.7.0"
+version = "1.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "525b4ec142c6b68a2d10f01f7bbf6755599ca3f81ea53b8431b7dd348f5fdb2d"
+checksum = "ced3678a2879b30306d323f4542626697a464a97c0a07c9aebf7ebca65cd4dde"
 dependencies = [
  "zeroize_derive",
 ]

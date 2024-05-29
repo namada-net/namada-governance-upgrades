@@ -16,19 +16,19 @@ const TX_TRANSFER_BYTES: &[u8] = include_bytes!(
 const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 2] = [
     (
         "channel-0",
-        "tnam1q....",
+        "tnam1qrdm8ymq2svrrafzuqahm547xm4kfuw3aue93uzs",
         MintTokenLimit::from_u64(1000),
         ThroughtputTokenLimit::from_u64(10000),
     ),
     (
         "channel-1",
-        "tnam1q....",
+        "tnam1qqx4luqsngxdmpf5nk8shkn7wwlmz6g7dckp8kgm",
         MintTokenLimit::from_u64(2000),
         ThroughtputTokenLimit::from_u64(13000),
     ),
 ];
 
-#[transaction]
+#[transaction(gas = 10000)]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Enable IBC deposit/withdraws limits
     for (channel_id, base_token, mint_limit, throughput_limit) in IBC_TOKENS {
@@ -49,9 +49,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         .unwrap_or_default();
 
     // Update the allowlist and write the addition wasm storage keys per transaction
-    for (wasm_name, wasm_bytes) in [
-        (TX_TRANSFER_NAME, TX_TRANSFER_BYTES)
-    ] {
+    for (wasm_name, wasm_bytes) in [(TX_TRANSFER_NAME, TX_TRANSFER_BYTES)] {
         let tx_hash = CodeHash::sha256(wasm_bytes);
 
         if current_tx_allowlist.contains(&tx_hash.to_string()) {

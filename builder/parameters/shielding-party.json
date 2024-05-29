@@ -1,0 +1,15 @@
+{
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget ex id erat interdum dictum vel ac libero. Cras vitae porta velit, vel interdum odio. Phasellus quis sem finibus, luctus neque in, vestibulum lectus. Maecenas at nulla dapibus, condimentum sem vitae, ullamcorper nisi. Pellentesque tristique tempus tellus, nec sollicitudin velit facilisis at. Vivamus porta nibh sit amet eros tempor, vestibulum lacinia est pulvinar. Maecenas libero mauris, blandit sit amet tempus in, elementum quis nunc.    ",
+    "authors": "Bob The Builer <bob@thebuilder.rock>",
+    "discussions-to": "www.bob-the-builder.forum.rock",
+    "license": "SPQR",
+    "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "motivation": " Vivamus eget ex id erat interdum dictum vel ac libero.",
+    "details": "Phasellus quis sem finibus, luctus neque in, vestibulum lectus.",
+    "requires": "-1",
+    "author": "tnam1qxfj3sf6a0meahdu9t6znp05g8zx4dkjtgyn9gfu",
+    "voting_start_epoch": 9,
+    "voting_end_epoch": 18,
+    "activation_epoch": 25,
+    "wasm_path": "artifacts/shielding_party.wasm"
+}

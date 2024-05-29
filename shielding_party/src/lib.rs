@@ -7,7 +7,7 @@ pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;
 
 pub type TokenMaxReward = &'static str;
-pub type TokenTargetLockedAmount = &'static str;
+pub type TokenTargetLockedAmount = u64;
 pub type KpGain = &'static str;
 pub type KdGain = &'static str;
 
@@ -23,28 +23,30 @@ const IBC_TOKENS: [(
     (
         0,
         "channel-0",
-        "tnam1q....",
+        "tnam1qrdm8ymq2svrrafzuqahm547xm4kfuw3aue93uzs",
         "0.01",
-        "1_000_000_000",
+        1_000_000_000,
         "120000",
         "120000",
     ),
     (
         0,
-        "channel-0",
-        "tnam1q....",
+        "channel-1",
+        "tnam1qqx4luqsngxdmpf5nk8shkn7wwlmz6g7dckp8kgm",
         "0.015",
-        "1_500_000_000",
+        1_500_000_000,
         "150000",
         "110000",
     ),
 ];
 
-#[transaction]
+#[transaction(gas = 10000)]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Read the current MASP token map
     let token_map_key = token::storage_key::masp_token_map_key();
-    let mut token_map = ctx.read::<masp::TokenMap>(&token_map_key)?.unwrap_or_default().clone();
+    let mut token_map = ctx
+        .read::<masp::TokenMap>(&token_map_key)?
+        .unwrap_or_default();
 
     let nam_address = ctx.get_native_token()?;
 
@@ -63,21 +65,30 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     let shielded_native_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&nam_address);
 
     // Setup native token shielded set rewards to 0
-    ctx.write(&shielded_native_token_last_inflation_key, token::Amount::zero())?;
+    ctx.write(
+        &shielded_native_token_last_inflation_key,
+        token::Amount::zero(),
+    )?;
     ctx.write(
         &shielded_native_token_last_locked_amount_key,
         token::Amount::zero(),
     )?;
     ctx.write(
         &shielded_native_token_max_rewards_key,
-        Dec::from_str("0").unwrap(),
+        Dec::from_str("0.0").unwrap(),
     )?;
     ctx.write(
         &shielded_native_token_target_locked_amount_key,
-        token::Amount::from_uint("0", 6).unwrap(),
+        token::Amount::from_uint(0, 6).unwrap(),
     )?;
-    ctx.write(&shielded_native_token_kp_gain_key, Dec::from_str("0").unwrap())?;
-    ctx.write(&shielded_native_token_kd_gain_key, Dec::from_str("0").unwrap())?;
+    ctx.write(
+        &shielded_native_token_kp_gain_key,
+        Dec::from_str("0.0").unwrap(),
+    )?;
+    ctx.write(
+        &shielded_native_token_kd_gain_key,
+        Dec::from_str("0.0").unwrap(),
+    )?;
 
     // Enable shielded set rewards for ibc tokens
     for (denomination, channel_id, base_token, max_reward, target_locked_amount, kp, kd) in
