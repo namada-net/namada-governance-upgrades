@@ -41,9 +41,9 @@ You can install `earthly` following the official guide [here](https://earthly.de
 # How to generate a proposal
 Use the python script `build_proposal.py` inside the build directory to build any of the four proposals that progress to the next phase:
 ```
-python3 builder/build_proposal.py -d <parameters_path_> -o <output_path>
+python3 builder/build_proposal.py -d $PARAMETERS_PATH -o $OUTPUT_PATH
 ```
-To build the phase1 to phase2 proposal:
+The `$PARAMETERS_PATH` is a json file that contains some parameters and values needed to properly construct a proposal. For example, to build the phase1 to phase2 proposal:
 ```
 python3 builder/build_proposal.py -d builder/parameters/block-party.json -o proposal.json
 ```
