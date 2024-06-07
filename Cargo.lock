@@ -18,7 +18,7 @@ version = "0.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b169f7a6d4742236a0a00c541b845991d0ac43e546831af1249753ab4c3aa3a0"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "cipher",
  "cpufeatures",
 ]
@@ -29,7 +29,7 @@ version = "0.8.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "once_cell",
  "version_check",
  "zerocopy",
@@ -176,6 +176,12 @@ checksum = "4c7f02d4ea65f2c1853089ffd8d2787bdbc63de2f0d29dedbcf8ccdfa0ccd4cf"
 
 [[package]]
 name = "base64"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9e1b586273c5702936fe7b7d6896644d8be71e6314cfe09d3167c95f712589e8"
+
+[[package]]
+name = "base64"
 version = "0.21.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9d297deb1925b89f2ccc13d7635fa0714f12c87adce1c75356b39ca9b7178567"
@@ -273,7 +279,7 @@ dependencies = [
  "arrayref",
  "arrayvec",
  "cc",
- "cfg-if 1.0.0",
+ "cfg-if",
  "constant_time_eq",
 ]
 
@@ -303,7 +309,7 @@ dependencies = [
  "namada_core",
  "namada_proof_of_stake",
  "namada_tx_prelude",
- "wee_alloc",
+ "rlsf",
 ]
 
 [[package]]
@@ -440,12 +446,6 @@ checksum = "41c270e7540d725e65ac7f1b212ac8ce349719624d7bcff99f8e2e488e8cf03f"
 
 [[package]]
 name = "cfg-if"
-version = "0.1.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4785bdd1c96b2a846b2bd7cc02e86b6b3dbf14e7e53446c4f54c92a361040822"
-
-[[package]]
-name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
@@ -462,7 +462,7 @@ version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c3613f74bd2eac03dad61bd53dbe620703d4371614fe0bc3b9f04dd36fe4e818"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "cipher",
  "cpufeatures",
 ]
@@ -502,6 +502,12 @@ dependencies = [
  "inout",
  "zeroize",
 ]
+
+[[package]]
+name = "const-default"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b396d1f76d455557e1218ec8066ae14bba60b4b36ecd55577ba979f5db7ecaa"
 
 [[package]]
 name = "const-oid"
@@ -954,7 +960,7 @@ version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c4567c8db10ae91089c99af84c68c38da3ec2f087c3f82960bcdbf3656b6f4d7"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "libc",
  "wasi",
 ]
@@ -1723,7 +1729,7 @@ version = "0.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "956ff9b67e26e1a6a866cb758f12c6f8746208489e3e4a4b5580802f2f0a587b"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "ecdsa",
  "elliptic-curve",
  "once_cell",
@@ -1793,7 +1799,7 @@ checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
 [[package]]
 name = "masp_note_encryption"
 version = "1.0.0"
-source = "git+https://github.com/anoma/masp?rev=3aacc707c5948e7423589ac617305448bead9842#3aacc707c5948e7423589ac617305448bead9842"
+source = "git+https://github.com/anoma/masp?rev=4ede1c42d76d6348af8224bc8bfac4404321fe82#4ede1c42d76d6348af8224bc8bfac4404321fe82"
 dependencies = [
  "borsh 1.5.0",
  "chacha20",
@@ -1806,7 +1812,7 @@ dependencies = [
 [[package]]
 name = "masp_primitives"
 version = "1.0.0"
-source = "git+https://github.com/anoma/masp?rev=3aacc707c5948e7423589ac617305448bead9842#3aacc707c5948e7423589ac617305448bead9842"
+source = "git+https://github.com/anoma/masp?rev=4ede1c42d76d6348af8224bc8bfac4404321fe82#4ede1c42d76d6348af8224bc8bfac4404321fe82"
 dependencies = [
  "aes",
  "bip0039",
@@ -1841,12 +1847,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
 
 [[package]]
-name = "memory_units"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8452105ba047068f40ff7093dd1d9da90898e63dd61736462e9cdda6a90ad3c3"
-
-[[package]]
 name = "memuse"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1866,8 +1866,8 @@ checksum = "defc4c55412d89136f966bbb339008b474350e5e6e78d2714439c386b3137a03"
 
 [[package]]
 name = "namada_account"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1878,8 +1878,8 @@ dependencies = [
 
 [[package]]
 name = "namada_controller"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "namada_core",
  "smooth-operator",
@@ -1888,8 +1888,8 @@ dependencies = [
 
 [[package]]
 name = "namada_core"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "bech32",
  "borsh 1.5.0",
@@ -1931,8 +1931,8 @@ dependencies = [
 
 [[package]]
 name = "namada_events"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1945,8 +1945,8 @@ dependencies = [
 
 [[package]]
 name = "namada_gas"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "namada_core",
@@ -1958,8 +1958,8 @@ dependencies = [
 
 [[package]]
 name = "namada_governance"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "itertools",
@@ -1979,8 +1979,8 @@ dependencies = [
 
 [[package]]
 name = "namada_ibc"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "ibc",
@@ -1990,14 +1990,12 @@ dependencies = [
  "masp_primitives",
  "namada_core",
  "namada_events",
- "namada_gas",
  "namada_governance",
  "namada_macros",
  "namada_parameters",
  "namada_state",
  "namada_storage",
  "namada_token",
- "namada_tx",
  "primitive-types",
  "prost",
  "serde",
@@ -2009,8 +2007,8 @@ dependencies = [
 
 [[package]]
 name = "namada_macros"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "data-encoding",
  "proc-macro2",
@@ -2021,8 +2019,8 @@ dependencies = [
 
 [[package]]
 name = "namada_merkle_tree"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "eyre",
@@ -2036,10 +2034,9 @@ dependencies = [
 
 [[package]]
 name = "namada_parameters"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
- "borsh 1.5.0",
  "namada_core",
  "namada_macros",
  "namada_storage",
@@ -2048,11 +2045,10 @@ dependencies = [
 
 [[package]]
 name = "namada_proof_of_stake"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
- "data-encoding",
  "konst",
  "namada_account",
  "namada_controller",
@@ -2063,7 +2059,6 @@ dependencies = [
  "namada_parameters",
  "namada_storage",
  "namada_trans_token",
- "num-traits 0.2.19 (registry+https://github.com/rust-lang/crates.io-index)",
  "once_cell",
  "serde",
  "smooth-operator",
@@ -2073,16 +2068,16 @@ dependencies = [
 
 [[package]]
 name = "namada_replay_protection"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "namada_core",
 ]
 
 [[package]]
 name = "namada_shielded_token"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2091,7 +2086,6 @@ dependencies = [
  "namada_parameters",
  "namada_storage",
  "namada_trans_token",
- "namada_tx",
  "serde",
  "smooth-operator",
  "tracing",
@@ -2099,11 +2093,10 @@ dependencies = [
 
 [[package]]
 name = "namada_state"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
- "ics23",
  "itertools",
  "namada_core",
  "namada_events",
@@ -2115,18 +2108,15 @@ dependencies = [
  "namada_storage",
  "namada_tx",
  "patricia_tree",
- "sha2 0.9.9",
  "smooth-operator",
- "sparse-merkle-tree",
  "thiserror",
- "tiny-keccak",
  "tracing",
 ]
 
 [[package]]
 name = "namada_storage"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "itertools",
@@ -2143,8 +2133,8 @@ dependencies = [
 
 [[package]]
 name = "namada_token"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -2155,8 +2145,8 @@ dependencies = [
 
 [[package]]
 name = "namada_trans_token"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "konst",
  "namada_core",
@@ -2166,8 +2156,8 @@ dependencies = [
 
 [[package]]
 name = "namada_tx"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "ark-bls12-381",
  "bitflags",
@@ -2192,8 +2182,8 @@ dependencies = [
 
 [[package]]
 name = "namada_tx_env"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -2202,8 +2192,8 @@ dependencies = [
 
 [[package]]
 name = "namada_tx_prelude"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2220,14 +2210,12 @@ dependencies = [
  "namada_tx",
  "namada_tx_env",
  "namada_vm_env",
- "sha2 0.9.9",
- "thiserror",
 ]
 
 [[package]]
 name = "namada_vm_env"
-version = "0.37.0"
-source = "git+https://github.com/anoma/namada?branch=fraccaman/multitoken-allow-governance-changes#14e16d0e8af51b7201adeab2455d04bb49909212"
+version = "0.38.1"
+source = "git+https://github.com/anoma/namada?tag=v0.38.1#883bd0f920affee246f0394daa6acda3b9b69cdb"
 dependencies = [
  "borsh 1.5.0",
  "masp_primitives",
@@ -2763,6 +2751,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "rlsf"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "222fb240c3286247ecdee6fa5341e7cdad0ffdf8e7e401d9937f2d58482a20bf"
+dependencies = [
+ "cfg-if",
+ "const-default",
+ "libc",
+ "svgbobdoc",
+]
+
+[[package]]
 name = "rustc-hex"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2802,7 +2802,7 @@ version = "2.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eca070c12893629e2cc820a9761bedf6ce1dcddc9852984d1dc734b8bd9bd024"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "derive_more",
  "parity-scale-codec",
  "scale-info-derive",
@@ -2965,7 +2965,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4d58a1e1bf39749807d89cf2d98ac2dfa0ff1cb3faa38fbb64dd88ac8013d800"
 dependencies = [
  "block-buffer 0.9.0",
- "cfg-if 1.0.0",
+ "cfg-if",
  "cpufeatures",
  "digest 0.9.0",
  "opaque-debug",
@@ -2977,7 +2977,7 @@ version = "0.10.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "793db75ad2bcafc3ffa7c68b215fee268f537982cd901d132f89c6343f3a3dc8"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "cpufeatures",
  "digest 0.10.7",
 ]
@@ -2998,7 +2998,7 @@ version = "0.1.0"
 dependencies = [
  "getrandom",
  "namada_tx_prelude",
- "wee_alloc",
+ "rlsf",
 ]
 
 [[package]]
@@ -3007,7 +3007,7 @@ version = "0.1.0"
 dependencies = [
  "getrandom",
  "namada_tx_prelude",
- "wee_alloc",
+ "rlsf",
 ]
 
 [[package]]
@@ -3044,7 +3044,7 @@ version = "0.3.1-pre"
 source = "git+https://github.com/heliaxdev/sparse-merkle-tree?rev=bab8cb96872db22cc9a139b2d3dfc4e00521d097#bab8cb96872db22cc9a139b2d3dfc4e00521d097"
 dependencies = [
  "borsh 1.5.0",
- "cfg-if 1.0.0",
+ "cfg-if",
  "ics23",
  "itertools",
  "sha2 0.9.9",
@@ -3066,7 +3066,7 @@ version = "0.1.0"
 dependencies = [
  "getrandom",
  "namada_tx_prelude",
- "wee_alloc",
+ "rlsf",
 ]
 
 [[package]]
@@ -3095,6 +3095,19 @@ name = "subtle-ng"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "734676eb262c623cec13c3155096e08d1f8f29adce39ba17948b18dad1e54142"
+
+[[package]]
+name = "svgbobdoc"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f2c04b93fc15d79b39c63218f15e3fdffaa4c227830686e3b7c5f41244eb3e50"
+dependencies = [
+ "base64 0.13.1",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+ "unicode-width",
+]
 
 [[package]]
 name = "syn"
@@ -3142,7 +3155,7 @@ version = "3.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "85b77fafb263dd9d05cbeac119526425676db3784113aa9295c88498cbf8bff1"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "fastrand",
  "rustix",
  "windows-sys",
@@ -3407,6 +3420,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "unicode-width"
+version = "0.1.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68f5e5f3158ecfd4b8ff6fe086db7c8467a2dfdac97fe420f2b7c4aa97af66d6"
+
+[[package]]
 name = "universal-hash"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3434,7 +3453,7 @@ version = "0.2.92"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4be2531df63900aeb2bca0daaaddec08491ee64ceecbee5076636a3b026795a8"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if",
  "wasm-bindgen-macro",
 ]
 
@@ -3481,40 +3500,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.92"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af190c94f2773fdb3729c55b007a722abb5384da03bc0986df4c289bf5567e96"
-
-[[package]]
-name = "wee_alloc"
-version = "0.4.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dbb3b5a6b2bb17cb6ad44a2e68a43e8d2722c997da10e928665c72ec6c0a0b8e"
-dependencies = [
- "cfg-if 0.1.10",
- "libc",
- "memory_units",
- "winapi",
-]
-
-[[package]]
-name = "winapi"
-version = "0.3.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c839a674fcd7a98952e593242ea400abe93992746761e38641405d28b00f419"
-dependencies = [
- "winapi-i686-pc-windows-gnu",
- "winapi-x86_64-pc-windows-gnu",
-]
-
-[[package]]
-name = "winapi-i686-pc-windows-gnu"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
-
-[[package]]
-name = "winapi-x86_64-pc-windows-gnu"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 
 [[package]]
 name = "windows-core"

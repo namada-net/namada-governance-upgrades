@@ -1,23 +1,24 @@
-VERSION --global-cache 0.7
+VERSION --global-cache 0.8
 
 IMPORT github.com/earthly/lib/rust AS rust
 
 install:
   FROM rust:1.78.0-bookworm
+  RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-tools-14
+  
   RUN rustup component add clippy rustfmt
   RUN rustup target add wasm32-unknown-unknown
 
   # Call +INIT before copying the source file to avoid installing function depencies every time source code changes
   # This parametrization will be used in future calls to functions of the library
   DO rust+INIT --keep_fingerprints=true
-  RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-tools-14
 
 source:
   FROM +install
   COPY --keep-ts Cargo.toml Cargo.lock ./
   COPY --keep-ts --chmod 755 docker/run-wasmopt.sh ./run-wasmopt.sh
   COPY --keep-ts --chmod 755 docker/download-wasmopt.sh ./download-wasmopt.sh
-  COPY --keep-ts --dir block_party shielding_party staking_party shielding_reward_party wasms ./
+  COPY --keep-ts --dir block_party shielding_party staking_party shielding_reward_party ./
 
 # lint runs cargo clippy on the source code
 lint:
