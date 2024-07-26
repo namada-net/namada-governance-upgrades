@@ -36,4 +36,4 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Build
-      run: earthly --org heliax --sat namada-governance-upgrades --ci +build
+      run: earthly --ci +build
