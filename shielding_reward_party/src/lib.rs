@@ -10,13 +10,13 @@ pub const KD_GAIN: &str = "120000";
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
+    let nam_address = ctx.get_native_token()?;
+    
     // Enable NAM transfers
     let native_token_transferable_key = parameters_storage::get_native_token_transferable_key();
     ctx.write(&native_token_transferable_key, true)?;
 
     // Enable NAM MASP rewards
-    let nam_address = ctx.get_native_token()?;
-
     let shielded_token_last_inflation_key =
         token::storage_key::masp_last_inflation_key(&nam_address);
     let shielded_token_last_locked_amount_key =
