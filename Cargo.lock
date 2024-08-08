@@ -310,7 +310,6 @@ name = "block_party"
 version = "0.1.0"
 dependencies = [
  "getrandom",
- "namada_core",
  "namada_proof_of_stake",
  "namada_tx_prelude",
  "rlsf",
