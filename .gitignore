@@ -84,3 +84,4 @@ rust-project.json
 
 artifacts
 proposal.json
+*_*.sh
