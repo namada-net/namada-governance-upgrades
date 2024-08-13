@@ -5,7 +5,14 @@ members = [
     "block_party",
     "staking_party",
     "shielding_party",
-    "shielding_reward_party"
+    "shielding_reward_party",
+]
+
+default-members = [
+    "block_party",
+    "staking_party",
+    "shielding_party",
+    "shielding_reward_party",
 ]
 
 [workspace.package]
