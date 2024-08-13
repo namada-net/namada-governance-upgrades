@@ -6,7 +6,6 @@ members = [
     "staking_party",
     "shielding_party",
     "shielding_reward_party",
-    "check-onchain-wasm"
 ]
 
 default-members = [
