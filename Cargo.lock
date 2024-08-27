@@ -306,20 +306,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "block_party"
-version = "0.1.0"
+name = "bls12_381"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d7bc6d6292be3a19e6379786dac800f551e5865a5bb51ebbe3064ab80433f403"
 dependencies = [
- "getrandom",
- "namada_proof_of_stake",
- "namada_tx_prelude",
- "rlsf",
+ "ff",
+ "rand_core",
+ "subtle",
 ]
 
 [[package]]
 name = "bls12_381"
 version = "0.8.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d7bc6d6292be3a19e6379786dac800f551e5865a5bb51ebbe3064ab80433f403"
+source = "git+https://github.com/heliaxdev/bls12_381.git?rev=d3ebe9dd6488fac1923db120a7498079e55dd838#d3ebe9dd6488fac1923db120a7498079e55dd838"
 dependencies = [
  "ff",
  "rand_core",
@@ -1876,6 +1876,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "defc4c55412d89136f966bbb339008b474350e5e6e78d2714439c386b3137a03"
 
 [[package]]
+name = "nam_party"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "namada_account"
 version = "0.43.0"
 source = "git+https://github.com/anoma/namada?tag=v0.43.0#f5c3b708018c38bb8768da57ce3199a208ff9e12"
@@ -3126,7 +3135,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "shielded_reward_party"
+name = "shielding_party"
 version = "0.1.0"
 dependencies = [
  "getrandom",
@@ -3135,7 +3144,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "shielding_party"
+name = "shielding_rewards_party"
 version = "0.1.0"
 dependencies = [
  "getrandom",
@@ -3198,6 +3207,7 @@ name = "staking_party"
 version = "0.1.0"
 dependencies = [
  "getrandom",
+ "namada_proof_of_stake",
  "namada_tx_prelude",
  "rlsf",
 ]
