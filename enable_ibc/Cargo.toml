@@ -1,6 +1,6 @@
 [package]
 name = "enable_ibc"
-description = "WASM transaction to enable IBC."
+description = "WASM transaction to enable IBC on any IBC tokens."
 authors.workspace = true
 edition.workspace = true
 license.workspace = true

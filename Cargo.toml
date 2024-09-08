@@ -9,13 +9,6 @@ members = [
     "enable_ibc"
 ]
 
-default-members = [
-    "block_party",
-    "staking_party",
-    "shielding_party",
-    "shielding_reward_party",
-]
-
 [workspace.package]
 authors = ["Heliax AG <hello@heliax.dev>"]
 edition = "2021"
