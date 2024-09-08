@@ -728,16 +728,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "enable_ibc"
-version = "0.1.0"
-dependencies = [
- "getrandom",
- "namada_ibc",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

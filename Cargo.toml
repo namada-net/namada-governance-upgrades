@@ -6,7 +6,6 @@ members = [
     "staking_party",
     "shielding_party",
     "shielding_reward_party",
-    "enable_ibc"
 ]
 
 default-members = [
