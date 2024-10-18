@@ -1,6 +1,7 @@
 use dec::Dec;
 use namada_tx_prelude::*;
 use std::str::FromStr;
+use token::storage_key::balance_key;
 
 pub type Denomination = u8;
 pub type ChannelId = &'static str;
@@ -19,26 +20,15 @@ const IBC_TOKENS: [(
     TokenTargetLockedAmount,
     KpGain,
     KdGain,
-); 2] = [
-    (
-        0,
-        "channel-0",
-        "tnam1qrdm8ymq2svrrafzuqahm547xm4kfuw3aue93uzs",
-        "0.01",
-        1_000_000_000,
-        "120000",
-        "120000",
-    ),
-    (
-        0,
-        "channel-1",
-        "tnam1qqx4luqsngxdmpf5nk8shkn7wwlmz6g7dckp8kgm",
-        "0.015",
-        1_500_000_000,
-        "150000",
-        "110000",
-    ),
-];
+); 1] = [(
+    6,
+    "channel-0",
+    "uosmo",
+    "0.01",
+    1_000_000,
+    "120000",
+    "120000",
+)];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
@@ -48,47 +38,38 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         .read::<masp::TokenMap>(&token_map_key)?
         .unwrap_or_default();
 
-    let nam_address = ctx.get_native_token()?;
+    // let nam_address = ctx.get_native_token()?;
 
     // Add native token to token map
-    token_map.insert("nam".to_string(), nam_address.clone());
+    // token_map.insert("nam".to_string(), nam_address.clone());
 
-    let shielded_native_token_last_inflation_key =
-        token::storage_key::masp_last_inflation_key(&nam_address);
-    let shielded_native_token_last_locked_amount_key =
-        token::storage_key::masp_last_locked_amount_key(&nam_address);
-    let shielded_native_token_max_rewards_key =
-        token::storage_key::masp_max_reward_rate_key(&nam_address);
-    let shielded_native_token_target_locked_amount_key =
-        token::storage_key::masp_locked_amount_target_key(&nam_address);
-    let shielded_native_token_kp_gain_key = token::storage_key::masp_kp_gain_key(&nam_address);
-    let shielded_native_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&nam_address);
+    // let shielded_native_token_last_inflation_key =
+    //     token::storage_key::masp_last_inflation_key(&nam_address);
+    // let shielded_native_token_last_locked_amount_key =
+    //     token::storage_key::masp_last_locked_amount_key(&nam_address);
+    // let shielded_native_token_max_rewards_key =
+    //     token::storage_key::masp_max_reward_rate_key(&nam_address);
+    // let shielded_native_token_target_locked_amount_key =
+    //     token::storage_key::masp_locked_amount_target_key(&nam_address);
+    // let shielded_native_token_kp_gain_key = token::storage_key::masp_kp_gain_key(&nam_address);
+    // let shielded_native_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&nam_address);
 
     // Setup native token shielded set rewards to 0
-    ctx.write(
-        &shielded_native_token_last_inflation_key,
-        token::Amount::zero(),
-    )?;
-    ctx.write(
-        &shielded_native_token_last_locked_amount_key,
-        token::Amount::zero(),
-    )?;
-    ctx.write(
-        &shielded_native_token_max_rewards_key,
-        Dec::zero(),
-    )?;
-    ctx.write(
-        &shielded_native_token_target_locked_amount_key,
-        token::Amount::from_uint(0, 6).unwrap(),
-    )?;
-    ctx.write(
-        &shielded_native_token_kp_gain_key,
-        Dec::zero(),
-    )?;
-    ctx.write(
-        &shielded_native_token_kd_gain_key,
-        Dec::zero(),
-    )?;
+    // ctx.write(
+    //     &shielded_native_token_last_inflation_key,
+    //     token::Amount::zero(),
+    // )?;
+    // ctx.write(
+    //     &shielded_native_token_last_locked_amount_key,
+    //     token::Amount::zero(),
+    // )?;
+    // ctx.write(&shielded_native_token_max_rewards_key, Dec::zero())?;
+    // ctx.write(
+    //     &shielded_native_token_target_locked_amount_key,
+    //     token::Amount::from_uint(0, 6).unwrap(),
+    // )?;
+    // ctx.write(&shielded_native_token_kp_gain_key, Dec::zero())?;
+    // ctx.write(&shielded_native_token_kd_gain_key, Dec::zero())?;
 
     // Enable shielded set rewards for ibc tokens
     for (denomination, channel_id, base_token, max_reward, target_locked_amount, kp, kd) in
@@ -109,14 +90,19 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let shielded_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&token_address);
 
         // Add the ibc token to the masp token map
-        token_map.insert(ibc_denom, token_address);
+        token_map.insert(ibc_denom, token_address.clone());
 
-        // Write the MASP inflation keys
+        // Read the current balance of the IBC token in MASP and set that as initial locked amount
+        let ibc_balance_key = balance_key(
+            &token_address,
+            &Address::Internal(address::InternalAddress::Masp),
+        );
+        let current_ibc_amount = ctx.read::<token::Amount>(&ibc_balance_key)?.unwrap();
+        ctx.write(&shielded_token_last_locked_amount_key, current_ibc_amount)?;
+
+        // Initialize the remaining MASP inflation keys
         ctx.write(&shielded_token_last_inflation_key, token::Amount::zero())?;
-        ctx.write(
-            &shielded_token_last_locked_amount_key,
-            token::Amount::zero(),
-        )?;
+
         ctx.write(
             &shielded_token_max_rewards_key,
             Dec::from_str(max_reward).unwrap(),
