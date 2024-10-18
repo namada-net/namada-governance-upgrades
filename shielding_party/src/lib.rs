@@ -6,20 +6,12 @@ pub type BaseToken = &'static str;
 pub type MintTokenLimit = token::Amount;
 pub type ThroughtputTokenLimit = token::Amount;
 
-const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 2] = [
-    (
-        "channel-0",
-        "tnam1qrdm8ymq2svrrafzuqahm547xm4kfuw3aue93uzs",
-        MintTokenLimit::from_u64(1000),
-        ThroughtputTokenLimit::from_u64(10000),
-    ),
-    (
-        "channel-1",
-        "tnam1qqx4luqsngxdmpf5nk8shkn7wwlmz6g7dckp8kgm",
-        MintTokenLimit::from_u64(2000),
-        ThroughtputTokenLimit::from_u64(13000),
-    ),
-];
+const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 1] = [(
+    "channel-0",
+    "uosmo",
+    MintTokenLimit::from_u64(10000000000),
+    ThroughtputTokenLimit::from_u64(10000000000),
+)];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
