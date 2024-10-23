@@ -18,7 +18,7 @@ pub type ThroughtputTokenLimit = token::Amount;
 // Allow both OSMO and ATOM into Namada
 const IBC_TOKENS_1: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit); 2] = [
     (
-        "channel-2",
+        "channel-0",
         "uosmo",
         MintTokenLimit::from_u64(10000000000),
         ThroughtputTokenLimit::from_u64(10000000000),
@@ -44,7 +44,7 @@ const IBC_TOKENS_2: [(
     (0, "channel-1", "uatom", "0", 0, "0", "0"),
     (
         0,
-        "channel-2",
+        "channel-0",
         "uosmo",
         "0.01",
         1_000_000,
@@ -120,6 +120,10 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     }
 
     ctx.write(&token_map_key, token_map)?;
+
+    // Enable NAM transfers
+    let native_token_transferable_key = parameters_storage::get_native_token_transferable_key();
+    ctx.write(&native_token_transferable_key, true)?;
 
     Ok(())
 }
