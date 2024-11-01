@@ -12,18 +12,34 @@ pub type CanBeUsedAsGas = bool;
 pub type Gas = token::Amount;
 pub type MinimumGasPrice = Option<Gas>;
 
-const IBC_TOKENS: [(ChannelId, BaseToken, MintTokenLimit, ThroughtputTokenLimit, MinimumGasPrice); 1] = [(
-    "channel-0",
-    "uosmo",
-    MintTokenLimit::from_u64(10000000000),
-    ThroughtputTokenLimit::from_u64(10000000000),
-    Some(Gas::from_u64(1)),
-)];
+const IBC_TOKENS: [(
+    ChannelId,
+    BaseToken,
+    MintTokenLimit,
+    ThroughtputTokenLimit,
+    MinimumGasPrice,
+); 2] = [
+    (
+        "channel-3",
+        "uosmo",
+        MintTokenLimit::from_u64(10000000000),
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)),
+    ),
+    (
+        "channel-1",
+        "uatom",
+        MintTokenLimit::from_u64(10000000000),
+        ThroughtputTokenLimit::from_u64(10000000000),
+        None,
+    ),
+];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     let gas_cost_key = get_gas_cost_key();
-    let mut minimum_gas_price: BTreeMap<Address, token::Amount> = ctx.read(&gas_cost_key)?.unwrap_or_default();
+    let mut minimum_gas_price: BTreeMap<Address, token::Amount> =
+        ctx.read(&gas_cost_key)?.unwrap_or_default();
 
     // Enable IBC deposit/withdraws limits
     for (channel_id, base_token, mint_limit, throughput_limit, can_be_used_as_gas) in IBC_TOKENS {
