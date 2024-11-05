@@ -10,11 +10,11 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     ctx.write(&native_token_transferable_key, true)?;
 
     // 2. Update governance parameters
-    let min_proposal_grace_epochs_key = gov_storage::keys::get_min_proposal_grace_epochs_key();
-    ctx.write(&min_proposal_grace_epochs_key, MIN_PROPOSAL_GRACE_EPOCHS)?;
+    // let min_proposal_grace_epochs_key = gov_storage::keys::get_min_proposal_grace_epochs_key();
+    // ctx.write(&min_proposal_grace_epochs_key, MIN_PROPOSAL_GRACE_EPOCHS)?;
 
-    let min_proposal_voting_period_key = gov_storage::keys::get_min_proposal_voting_period_key();
-    ctx.write(&min_proposal_voting_period_key, MIN_PROPOSAL_VOTING_PERIOD)?;
+    // let min_proposal_voting_period_key = gov_storage::keys::get_min_proposal_voting_period_key();
+    // ctx.write(&min_proposal_voting_period_key, MIN_PROPOSAL_VOTING_PERIOD)?;
 
     Ok(())
 }
