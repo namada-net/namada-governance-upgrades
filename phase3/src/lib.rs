@@ -100,5 +100,9 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Write the token map back to storage
     ctx.write(&token_map_key, token_map)?;
 
+    // Change MASP fee payment gas limit
+    let key = parameters_storage::get_masp_fee_payment_gas_limit_key();
+    ctx.write(&key, 65_000u64)?;
+
     Ok(())
 }
