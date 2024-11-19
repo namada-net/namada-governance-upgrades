@@ -2688,6 +2688,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "phase4_retry"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "phase5"
 version = "0.1.0"
 dependencies = [

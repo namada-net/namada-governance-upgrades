@@ -6,6 +6,7 @@ members = [
     "phase3",
     "phase4",
     "phase5",
+    "phase4_retry",
 ]
 
 default-members = [
@@ -13,6 +14,7 @@ default-members = [
     "phase3",
     "phase4",
     "phase5",
+    "phase4_retry"
 ]
 
 [workspace.package]
