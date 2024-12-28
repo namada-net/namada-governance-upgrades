@@ -1,11 +1,12 @@
 [workspace]
 resolver = "2"
 
-members = [
+members = [ "increase_target_staked_ratio",
     "phase2",
     "phase3",
     "phase4",
     "phase5",
+    "increase_target_staked_ratio"
 ]
 
 default-members = [
@@ -13,6 +14,7 @@ default-members = [
     "phase3",
     "phase4",
     "phase5",
+    "increase_target_staked_ratio"
 ]
 
 [workspace.package]

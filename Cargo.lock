@@ -1635,6 +1635,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "increase_target_staked_ratio"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_proof_of_stake",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "incrementalmerkletree"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
