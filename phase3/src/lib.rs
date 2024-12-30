@@ -19,13 +19,57 @@ const IBC_TOKENS: [(
     MintTokenLimit,
     ThroughtputTokenLimit,
     MinimumGasPrice,
-); 1] = [(
-    "channel-0",
-    "uosmo",
-    MintTokenLimit::from_u64(10000000000),
-    ThroughtputTokenLimit::from_u64(10000000000),
-    Some(Gas::from_u64(1)),
-)];
+); 7] = [
+    (
+        "channel-X",
+        "uosmo",
+        MintTokenLimit::from_u64(10000000000), // 10_000 OSMO supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 uosmo / gas unit
+    ),
+    (
+        "channel-Y",
+        "uatom",
+        MintTokenLimit::from_u64(10000000000), // 10_000 ATOM supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 uatom / gas unit;
+    ),
+    (
+        "channel-Z",
+        "utia",
+        MintTokenLimit::from_u64(10000000000), // 10_000 TIA supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 utia / gas unit;
+    ),
+    (
+        "channel-X",
+        "ustosmo",
+        MintTokenLimit::from_u64(10000000000), // 10_000 stOSMO supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 ustosmo / gas unit
+    ),
+    (
+        "channel-Y",
+        "ustatom",
+        MintTokenLimit::from_u64(10000000000), // 10_000 stATOM supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 ustatom / gas unit;
+    ),
+    (
+        "channel-Z",
+        "usttia",
+        MintTokenLimit::from_u64(10000000000), // 10_000 stTIA supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(1)), // 1 usttia / gas unit;
+    ),
+    (
+        "channel-Z",
+        "ainj??",
+        MintTokenLimit::from_u64(10000000000), // 10e-8 INJ supply limit
+        ThroughtputTokenLimit::from_u64(10000000000),
+        Some(Gas::from_u64(2500000000000000)), // 0.0025 (2.5e15) inj (ainj) / gas unit;
+    ),
+];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
