@@ -2,6 +2,7 @@
 resolver = "2"
 
 members = [ "increase_target_staked_ratio",
+    "nam_rate_limits",
     "phase2",
     "phase3",
     "phase4",
@@ -15,6 +16,7 @@ default-members = [
     "phase4",
     "phase5",
     "increase_target_staked_ratio"
+    "nam_rate_limits",
 ]
 
 [workspace.package]

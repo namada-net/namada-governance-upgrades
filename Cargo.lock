@@ -2346,6 +2346,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "nam_rate_limits"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "namada_account"
 version = "0.47.1"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.47.1#c934e9f35b1c0053d6db0ebbb4279e53c599e928"
