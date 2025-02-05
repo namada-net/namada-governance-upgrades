@@ -21,7 +21,7 @@ const IBC_TOKENS: [(
     MinimumGasPrice,
 ); 6] = [
     (
-        "channel-3",
+        "channel-0",
         "uosmo",
         MintTokenLimit::from_u64(100000000),       // 100 OSMO
         ThroughtputTokenLimit::from_u64(20000000), // 20 OSMO
