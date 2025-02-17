@@ -2223,6 +2223,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "max_block_gas"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "memchr"
 version = "2.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
