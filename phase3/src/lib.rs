@@ -21,42 +21,42 @@ const IBC_TOKENS: [(
     MinimumGasPrice,
 ); 6] = [
     (
-        "channel-?",
+        "channel-1",
         "uosmo",
         MintTokenLimit::from_u64(10752692000000),       // 10,752,692 OSMO
         ThroughtputTokenLimit::from_u64(2150539000000), // 2,150,539 OSMO
         Some(Gas::from_u64(10)),                        // 10 uosmo / gas unit
     ),
     (
-        "channel-?",
+        "channel-2",
         "uatom",
         MintTokenLimit::from_u64(759878000000),         // 759,878 ATOM
         ThroughtputTokenLimit::from_u64(151976000000),  // 151,976 ATOM
         Some(Gas::from_u64(1)),                         // 1 uatom / gas unit;
     ),
     (
-        "channel-?",
+        "channel-3",
         "utia",
         MintTokenLimit::from_u64(1018330000000),        // 1,018,330 TIA
         ThroughtputTokenLimit::from_u64(203666000000),  // 203,666 TIA
         Some(Gas::from_u64(1)),                         // 1 utia / gas unit;
     ),
     (
-        "channel-?",
+        "channel-0",
         "ustosmo",
         MintTokenLimit::from_u64(8196721000000),        // 8,196,721 stOSMO
         ThroughtputTokenLimit::from_u64(1639344000000), // 1,639,344 stOSMO
         Some(Gas::from_u64(10)),                        // 10 stuosmo / gas unit
     ),
     (
-        "channel-?",
+        "channel-0",
         "ustatom",
         MintTokenLimit::from_u64(512821000000),         // 512,821 stATOM
         ThroughtputTokenLimit::from_u64(102564000000),  // 102,564 stATOM
         Some(Gas::from_u64(1)),                         // 1 stuatom / gas unit;
     ),
     (
-        "channel-?",
+        "channel-0",
         "usttia",
         MintTokenLimit::from_u64(946970000000),         // 946,970 stTIA
         ThroughtputTokenLimit::from_u64(189394000000),  // 189,394 stTIA
