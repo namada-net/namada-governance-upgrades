@@ -1,4 +1,4 @@
-use namada_ibc::parameters::IbcParameters;
+use namada_ibc::parameters::{IbcParameters, IbcTokenRateLimits};
 use namada_ibc::storage::params_key;
 use namada_tx_prelude::*;
 
@@ -19,8 +19,10 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     let ibc_params_key = params_key();
 
     let ibc_params = IbcParameters {
-        default_mint_limit: MINT_LIMIT,
-        default_per_epoch_throughput_limit: THROUGHPUT_LIMIT,
+        default_rate_limits: IbcTokenRateLimits {
+            mint_limit: MINT_LIMIT,
+            throughput_per_epoch_limit: THROUGHPUT_LIMIT,
+        },
     };
     ctx.write(&ibc_params_key, ibc_params)?;
 
