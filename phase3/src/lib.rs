@@ -43,21 +43,21 @@ const IBC_TOKENS: [(
     ),
     (
         "channel-0",
-        "ustosmo",
+        "stuosmo",
         MintTokenLimit::from_u64(8196721000000),        // 8,196,721 stOSMO
         ThroughtputTokenLimit::from_u64(1639344000000), // 1,639,344 stOSMO
         Some(Gas::from_u64(10)),                        // 10 stuosmo / gas unit
     ),
     (
         "channel-0",
-        "ustatom",
+        "stuatom",
         MintTokenLimit::from_u64(512821000000),         // 512,821 stATOM
         ThroughtputTokenLimit::from_u64(102564000000),  // 102,564 stATOM
         Some(Gas::from_u64(1)),                         // 1 stuatom / gas unit;
     ),
     (
         "channel-0",
-        "usttia",
+        "stutia",
         MintTokenLimit::from_u64(946970000000),         // 946,970 stTIA
         ThroughtputTokenLimit::from_u64(189394000000),  // 189,394 stTIA
         Some(Gas::from_u64(1)),                         // 1 stutia / gas unit;
