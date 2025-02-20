@@ -4296,6 +4296,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "update-tx-claim-rewards"
+version = "0.1.0"
+dependencies = [
+ "getrandom",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "usize-set"
 version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
