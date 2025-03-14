@@ -28,9 +28,9 @@ license = "GPL-3.0"
 version = "0.1.0"
 
 [workspace.dependencies]
-namada_tx_prelude = { git = "https://github.com/anoma/namada", rev = "46e3477e2ed15b43cc6fb466fd4a9456727e5e0b" }
-namada_proof_of_stake = { git = "https://github.com/anoma/namada", rev = "46e3477e2ed15b43cc6fb466fd4a9456727e5e0b" }
-namada_ibc = { git = "https://github.com/anoma/namada", rev = "46e3477e2ed15b43cc6fb466fd4a9456727e5e0b" }
+namada_tx_prelude = { git = "https://github.com/anoma/namada", rev = "66e512225da9c5f13d9e23647cf9c07ab987f1eb" }
+namada_proof_of_stake = { git = "https://github.com/anoma/namada", rev = "66e512225da9c5f13d9e23647cf9c07ab987f1eb" }
+namada_ibc = { git = "https://github.com/anoma/namada", rev = "66e512225da9c5f13d9e23647cf9c07ab987f1eb" }
 rlsf = "0.2.1"
 getrandom = { version = "0.2", features = ["custom"] }
 lazy_static = "1.4.0"
