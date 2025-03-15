@@ -15,12 +15,11 @@ const IBC_TOKENS: [(ChannelId, BaseToken, Precision); 6] = [
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
-    // Enable IBC deposit/withdraws limits
     for (channel_id, base_token, precision) in IBC_TOKENS {
         let ibc_denom = format!("transfer/{channel_id}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom).clone();
 
-        // Write some null MASP reward data
+        // Set precision of rewards for the given token
         let shielded_token_reward_precision_key =
             token::storage_key::masp_reward_precision_key(&token_address);
 
