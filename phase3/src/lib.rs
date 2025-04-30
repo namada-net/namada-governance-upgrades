@@ -23,22 +23,22 @@ const IBC_TOKENS: [(
     (
         "channel-4",
         "upenumbra",
-        MintTokenLimit::from_u64(10000000000000), // 10M UM
-        ThroughtputTokenLimit::from_u64(2000000000000), // 2M UM
-        Some(Gas::from_u64(10)),                  // 10 upenumbra / gas unit
+        MintTokenLimit::from_u64(5000000000000), // 5M UM
+        ThroughtputTokenLimit::from_u64(1000000000000), // 1M UM
+        Some(Gas::from_u64(10)),                 // 10 upenumbra / gas unit
     ),
     (
         "channel-5",
         "uusdc",
-        MintTokenLimit::from_u64(10000000000000), // 10M USDC
-        ThroughtputTokenLimit::from_u64(2000000000000), // 2M USDC
-        Some(Gas::from_u64(3)),                   // 3 uusdc / gas unit;
+        MintTokenLimit::from_u64(5000000000000), // 5M USDC
+        ThroughtputTokenLimit::from_u64(1000000000000), // 1M USDC
+        Some(Gas::from_u64(3)),                  // 3 uusdc / gas unit;
     ),
     (
         "channel-6",
         "unym",
         MintTokenLimit::from_u64(10000000000000), // 10M NYM
-        ThroughtputTokenLimit::from_u64(2000000000000), // 2m NYM
+        ThroughtputTokenLimit::from_u64(2000000000000), // 2M NYM
         Some(Gas::from_u64(50)),                  // 50 unym / gas unit;
     ),
     (
