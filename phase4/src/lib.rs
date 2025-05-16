@@ -20,15 +20,62 @@ const IBC_TOKENS: [(
     TokenTargetLockedAmount,
     KpGain,
     KdGain,
-); 1] = [(
-    0,
-    "channel-0",
-    "uosmo",
-    "0.01",
-    1_000_000,
-    "120000",
-    "120000",
-)];
+); 6] = [
+    (
+        0,
+        "channel-1",
+        "uosmo",
+        "0.009",
+        6_800_000_000_000, // 6.8M OSMO
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-2",
+        "uatom",
+        "0.009",
+        460_000_000_000, // 460K ATOM
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-3",
+        "utia",
+        "0.009",
+        570_000_000_000, // 570K TIA
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-0",
+        "stuosmo",
+        "0.009",
+        500_000_000_000, // 500K stOSMO
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-0",
+        "stuatom",
+        "0.009",
+        30_000_000_000, // 30K stATOM
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-0",
+        "stutia",
+        "0.009",
+        50_000_000_000, // 50K stTIA
+        "50",
+        "85",
+    ),
+];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
