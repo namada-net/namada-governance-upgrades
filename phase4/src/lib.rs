@@ -80,10 +80,11 @@ const IBC_TOKENS: [(
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // Read the current MASP token map
-    let token_map_key = token::storage_key::masp_token_map_key();
-    let mut token_map = ctx
-        .read::<masp::TokenMap>(&token_map_key)?
-        .unwrap_or_default();
+    // NOTE: Not needed for the exact mainnet Phase 4 since this logic was included in the Phase 3 proposal
+    // let token_map_key = token::storage_key::masp_token_map_key();
+    // let mut token_map = ctx
+    //     .read::<masp::TokenMap>(&token_map_key)?
+    //     .unwrap_or_default();
 
     // Enable shielded set rewards for ibc tokens
     for (denomination, channel_id, base_token, max_reward, target_locked_amount, kp, kd) in
@@ -104,7 +105,8 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let shielded_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&token_address);
 
         // Add the ibc token to the masp token map
-        token_map.insert(ibc_denom, token_address.clone());
+        // NOTE: Not needed for the exact mainnet Phase 4 since this logic was included in the Phase 3 proposal
+        // token_map.insert(ibc_denom, token_address.clone());
 
         // Read the current balance of the IBC token in MASP and set that as initial locked amount
         let ibc_balance_key = balance_key(
@@ -130,7 +132,8 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     }
 
     // Write the token map back to storage
-    ctx.write(&token_map_key, token_map)?;
+    // NOTE: Not needed for the exact mainnet Phase 4 since this logic was included in the Phase 3 proposal
+    // ctx.write(&token_map_key, token_map)?;
 
     Ok(())
 }
