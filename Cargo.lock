@@ -3090,6 +3090,7 @@ name = "phase3"
 version = "0.1.0"
 dependencies = [
  "getrandom",
+ "namada_ibc",
  "namada_tx_prelude",
  "rlsf",
 ]
