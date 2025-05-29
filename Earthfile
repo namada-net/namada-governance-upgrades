@@ -3,7 +3,7 @@ VERSION --global-cache 0.8
 IMPORT github.com/earthly/lib/rust AS rust
 
 install:
-  FROM rust:1.81.0-bookworm
+  FROM rust:1.85.1-bookworm
   RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-tools-14
   
   RUN rustup component add clippy rustfmt
