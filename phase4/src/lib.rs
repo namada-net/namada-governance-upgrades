@@ -20,7 +20,7 @@ const IBC_TOKENS: [(
     TokenTargetLockedAmount,
     KpGain,
     KdGain,
-); 6] = [
+); 7] = [
     (
         0,
         "channel-1",
@@ -72,6 +72,15 @@ const IBC_TOKENS: [(
         "stutia",
         "0.009",
         50_000_000_000, // 50K stTIA
+        "50",
+        "85",
+    ),
+    (
+        0,
+        "channel-5",
+        "uusdc",
+        "0.018",
+        2_200_000_000_000, // 2.2M USDC
         "50",
         "85",
     ),
