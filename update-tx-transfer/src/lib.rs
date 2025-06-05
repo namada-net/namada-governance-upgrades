@@ -47,7 +47,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
 const TX_NAME: &str = "tx_transfer.wasm";
 const OLD_TX_HASH: &str = "ef687f96ec919f5da2e90f125a2800f198a06bcd609a37e5a9ec90d442e32239";
-const NEW_TX_HASH: &str = "9a950b45d233c8f6fabfa5c473800c182f7666fe0c35c1a612f66a5f094758fe.wasm";
+const NEW_TX_HASH: &str = "9a950b45d233c8f6fabfa5c473800c182f7666fe0c35c1a612f66a5f094758fe";
 const NEW_TX_CODE: &[u8] = include_bytes!(
     "tx_transfer.9a950b45d233c8f6fabfa5c473800c182f7666fe0c35c1a612f66a5f094758fe.wasm"
 );
