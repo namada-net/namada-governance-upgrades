@@ -1,5 +1,5 @@
 [package]
-name = "phase5-2"
+name = "phase5b"
 description = "WASM transaction to raise IBC rate limits for NAM as part of Phase 5."
 authors.workspace = true
 edition.workspace = true

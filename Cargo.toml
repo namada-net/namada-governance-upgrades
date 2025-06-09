@@ -5,8 +5,8 @@ members = [
     "phase2",
     "phase3",
     "phase4",
-    "phase5-1",
-    "phase5-2",
+    "phase5a",
+    "phase5b",
     "increase_target_staked_ratio",
     "update-tx-claim-rewards",
 ]
@@ -15,8 +15,8 @@ default-members = [
     "phase2",
     "phase3",
     "phase4",
-    "phase5-1",
-    "phase5-2",
+    "phase5a",
+    "phase5b",
     "increase_target_staked_ratio",
     "update-tx-claim-rewards",
 ]
