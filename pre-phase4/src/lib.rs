@@ -76,7 +76,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     // The MASP epoch in which this migration will be applied. This number
     // controls the number of epochs of conversions created.
     let target_masp_epoch: MaspEpoch =
-        MaspEpoch::try_from_epoch(Epoch(8000), 4).expect("failed to construct target masp epoch");
+        MaspEpoch::try_from_epoch(Epoch(4248), 4).expect("failed to construct target masp epoch");
 
     // Reset the allowed conversions for the above tokens
     for (token_address, denomination, precision) in TOKENS {
