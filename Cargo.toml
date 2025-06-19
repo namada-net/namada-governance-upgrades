@@ -20,6 +20,7 @@ default-members = [
     "phase5b",
     "increase_target_staked_ratio",
     "update-tx-claim-rewards",
+    "ibc_rate_limits",
 ]
 
 [workspace.package]
