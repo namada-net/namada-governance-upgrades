@@ -1,6 +1,3 @@
-use std::str::FromStr;
-
-use dec::Dec;
 use namada_ibc::storage::{mint_limit_key, throughput_limit_key};
 use namada_tx_prelude::*;
 use namada_tx_prelude::token::Amount;
