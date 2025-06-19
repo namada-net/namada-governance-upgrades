@@ -1,5 +1,5 @@
 [package]
-name = "ibc-rate-limits"
+name = "ibc_rate_imits"
 description = "WASM transaction to change IBC rate limits."
 authors.workspace = true
 edition.workspace = true
