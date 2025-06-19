@@ -1987,7 +1987,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ibc_rate_imits"
+name = "ibc_rate_limits"
 version = "0.1.0"
 dependencies = [
  "getrandom 0.2.16",
