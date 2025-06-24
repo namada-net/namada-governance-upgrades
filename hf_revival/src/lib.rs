@@ -19,6 +19,7 @@ pub type TokenTargetLockedAmount = u64;
 pub type KpGain = &'static str;
 pub type KdGain = &'static str;
 
+#[allow(clippy::type_complexity)]
 const IBC_TOKENS: [(
     Denomination,
     ChannelId,
