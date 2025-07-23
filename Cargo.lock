@@ -3461,6 +3461,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "reduce_staking_rewards"
+version = "0.1.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_proof_of_stake",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "regex"
 version = "1.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
