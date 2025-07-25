@@ -11,6 +11,7 @@ members = [
     "increase_target_staked_ratio",
     "update-wasm",
     "update_ibc_rate_limits",
+    "update-tx-withdraw",
 ]
 
 default-members = [
@@ -21,6 +22,7 @@ default-members = [
     "phase5a",
     "phase5b",
     "increase_target_staked_ratio",
+    "update-tx-withdraw",
     "update-wasm",
     "update_ibc_rate_limits",
 ]

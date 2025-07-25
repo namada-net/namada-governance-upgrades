@@ -1,0 +1,17 @@
+[package]
+name = "update-tx-withdraw"
+description = "WASM transaction to update tx_withdraw_tokens WASM from https://github.com/namada-net/namada/pull/4778."
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+namada_tx_prelude.workspace = true
+rlsf.workspace = true
+getrandom.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
