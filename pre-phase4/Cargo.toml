@@ -1,6 +1,6 @@
 [package]
 name = "pre-phase4"
-description = "WASM transaction to transition from phase 3 to pre-phase 4 of Namada mainnet."
+description = "WASM transaction to change a MASP token's precision and migrate notes."
 authors.workspace = true
 edition.workspace = true
 license.workspace = true

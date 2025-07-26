@@ -29,7 +29,7 @@ pub enum TokenAddress {
 
 // The address of the native token. This is what rewards are denominated in.
 const NATIVE_TOKEN_BECH32M: AddressBech32m = "tnam1q9gr66cvu4hrzm0sd5kmlnjje82gs3xlfg3v6nu7";
-// The tokens whose rewarrds will be reset.
+// The tokens whose ds will be reset.
 const TOKENS: [(TokenAddress, Denomination, Precision); 11] = [
     (
         TokenAddress::Ibc("channel-1", "uosmo"),
