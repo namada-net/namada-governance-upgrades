@@ -9,7 +9,7 @@ members = [
     "phase5b",
     "increase_target_staked_ratio",
     "update-wasm",
-    "ibc_rate_limits",
+    "update_ibc_rate_limits",
 ]
 
 default-members = [
@@ -19,12 +19,8 @@ default-members = [
     "phase5a",
     "phase5b",
     "increase_target_staked_ratio",
-<<<<<<<
-    "update-tx-claim-rewards",
-    "ibc_rate_limits",
-=======
     "update-wasm",
->>>>>>>
+    "update_ibc_rate_limits",
 ]
 
 [workspace.package]
