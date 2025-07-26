@@ -4453,6 +4453,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "whitelist-tokens"
+version = "0.1.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "windows-core"
 version = "0.61.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
