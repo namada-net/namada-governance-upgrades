@@ -18,7 +18,7 @@ source:
   COPY --keep-ts Cargo.toml Cargo.lock ./
   COPY --keep-ts --chmod 755 docker/run-wasmopt.sh ./run-wasmopt.sh
   COPY --keep-ts --chmod 755 docker/download-wasmopt.sh ./download-wasmopt.sh
-  COPY --keep-ts --dir phase2 phase3 phase4 phase5a phase5b update_ibc_rate_limits increase_target_staked_ratio update-wasm ./
+  COPY --keep-ts --dir phase2 phase3 phase4 phase5a phase5b pre-phase4 update_ibc_rate_limits increase_target_staked_ratio update-wasm ./
 
 # lint runs cargo clippy on the source code
 lint:
