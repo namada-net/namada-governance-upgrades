@@ -47,8 +47,8 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
 // The following are just example strings.
 // In practice, replace them with what is in and intended to go into the DB onchain.
-const TX_NAME: &str = "tx.wasm";
-const OLD_TX_HASH: &str = "b6a1f7e069360650d2c6a1bdd2e5f4e18bb748d35dad02c31c027673fa042d8c";
-const NEW_TX_HASH: &str = "b74104949ac0c35ee922fdc3f3db454627742e2483d79550c12fcf31755c6d01";
+const TX_NAME: &str = "tx_ibc.wasm";
+const OLD_TX_HASH: &str = "7b0d43f4a277aadd02562d811c755e09d7f191c601ca3bffb89a7f8b599dab1e";
+const NEW_TX_HASH: &str = "bd1b4230890ff8ece2733de7e770f4a8573a9541813186e5cb718bcc05c2056d";
 const NEW_TX_CODE: &[u8] =
-    include_bytes!("tx.b74104949ac0c35ee922fdc3f3db454627742e2483d79550c12fcf31755c6d01.wasm");
+    include_bytes!("tx_ibc.bd1b4230890ff8ece2733de7e770f4a8573a9541813186e5cb718bcc05c2056d.wasm");
