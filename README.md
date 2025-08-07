@@ -8,50 +8,20 @@ This repository contains two different classes of proposals. First, the proposal
 
 Second, there are some template / example proposal codes that are useful for commonly desired governance actions, such as changing the values of protocol parameters, updating wasm hashes on-chain, increasing IBC rate limits, etc.
 
-## 🚀 Phase Progression Proposals
+### Phase Progression Proposals
 
-### Phase 2: Staking and PGF inflation
-Enabled staking rewards and Public Goods Funding (PGF) inflation
-- **Location:** [`phase2/`](./phase2/)
+- [Phase 2](./phase2/): Enabled staking rewards and Public Goods Funding (PGF) inflation
+- [Phase 3](./phase3/): Enabled IBC transfers, the MASP, and all transfer functionality of non-native tokens
+- [Phase 4](./phase4/): Enabled shielded rewards for select incentivized assets
+- [Phase 5a](./phase5a/): Enabled transfer of the native token internally within Namada only
+- [Phase 5b](./phase5b/): Enabled transferrability of the native token over IBC out of Namada
 
-### Phase 3: Shielded Transfers
-Enabled IBC transfers, the MASP, and all transfer functionality of non-native tokens
-- **Location:** [`phase3/`](./phase3/)
+### Other Proposals
 
-### Phase 4: Shielding Incentives
-Enablesd shielded rewards for select incentivized assets
-- Users earn rewards for shielding assets, strengthening privacy protections
-- Incentivizes participation in the unified shielded set
-- **Location:** [`phase4/`](./phase4/)
-
-### Phase 5a: Internal native token transfers
-Enabled transfer of the native token internally within Namada only
-- **Location:** [`phase5a/`](./phase5a/)
-
-### Phase 5b: IBC transfers of native token
-Enabled transferrability of the native token over IBC out of Namada
-- **Location:** [`phase5b/`](./phase5b/)
-
-## Other Proposals
-
-### Pre-Phase 4: MASP Migration
-Prepares for Phase 4 shielding rewards by resetting MASP conversions and precision for various tokens
-- **Location:** [`pre-phase4/`](./pre-phase4/)
-
-### Increase Target Staked Ratio
-Updates the proof-of-stake (PoS) target staked ratio parameter
-- Shows how to update any PoS parameter
-- Affects staking reward distribution and network security economics
-- **Location:** [`increase_target_staked_ratio/`](./increase_target_staked_ratio/)
-
-### Update WASM Code
-Template for updating WASM code hashes (for transactions or validity predicates) on-chain
-- **Location:** [`update-wasm/`](./update-wasm/)
-
-### Update IBC Rate Limits
-Adjusts IBC transfer rate limits for cross-chain token movements
-- Updates mint and throughput limits for IBC tokens
-- **Location:** [`update_ibc_rate_limits/`](./update_ibc_rate_limits/)
+- [Pre-Phase 4](./pre-phase4/): Prepared for Phase 4 shielding rewards by resetting MASP conversions and precision for various tokens
+- [Increase Target Staked Ratio](./increase_target_staked_ratio/): Updates the proof-of-stake target staked ratio parameter. Template for updating any PoS parameter.
+- [Update WASM Code](./update-wasm/): Template for updating WASM code hashes (for transactions or validity predicates) on-chain
+- [Update IBC Rate Limits](./update_ibc_rate_limits/): Adjusts IBC transfer rate limits for specified tokens
 
 
 ## 🛠️ Quick Start
