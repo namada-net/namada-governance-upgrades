@@ -129,11 +129,3 @@ cargo check
 > **Security:** Always verify WASM hashes and proposal content before voting. Use the provided verification tools.
 
 > **Testing:** This code directly affects mainnet governance. Thoroughly test all changes in testnet environments.
-
-## 📄 License
-
-GPL-3.0 - See [LICENSE](LICENSE) for details.
-
----
-
-**Maintainer:** Heliax AG <hello@heliax.dev>
