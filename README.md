@@ -1,49 +1,131 @@
-# Namada Mainnet Governance Proposals
+# Namada Governance Upgrades
 
-Namada mainnet launch is divided into [5 phases](https://namada.net/mainnet-launch). Progressing from one phase to the next requires a governance proposal to active some features. This repository contains the WASM associated with each governance proposal.
+A repository and toolkit for using Rust code to build WASM files that are executable by Namada governance. 
 
-> 🔧 NOTE: The current parameter values are temporary and still to be determined. 🔧
+## Overview
 
-## Phase 1 -> 2 (Block party -> Staking party)
+This repository contains two different classes of proposals. First, the proposals that were used to advance Namada through its [5-phase rollout](https://namada.net/mainnet-launch) of its mainnet launch are provided here for future reference.
 
-Staking rewards are enabled for delegators and validators staking NAM. Public Goods Funding is enabled to support public goods in the Namada ecosystem and beyond.
+Second, there are some template / example proposal codes that are useful for commonly desired governance actions, such as changing the values of protocol parameters, updating wasm hashes on-chain, increasing IBC rate limits, etc.
 
-The reference code can be found in [phase2 folder](./phase2/).
+### Phase Progression Proposals
 
-## Phase 2 -> 3 (Staking party -> Shielding party)
+- [Phase 2](./phase2/): Enabled staking rewards and Public Goods Funding (PGF) inflation
+- [Phase 3](./phase3/): Enabled IBC transfers, the MASP, and all transfer functionality of non-native tokens
+- [Phase 4](./phase4/): Enabled shielded rewards for select incentivized assets
+- [Phase 5a](./phase5a/): Enabled transfer of the native token internally within Namada only
+- [Phase 5b](./phase5b/): Enabled transferrability of the native token over IBC out of Namada
 
-Transparent and shielded transfers of governance-enabled IBC assets are enabled. Users can begin shielding assets in the unified shielded set. NAM transfers remain locked until phase 5 (NAM party).
+### Other Proposals
 
-The reference code can be found in [phase3 folder](./phase3/).
+- [Pre-Phase 4](./pre-phase4/): Prepared for Phase 4 shielding rewards by resetting MASP conversions and precision for various tokens
+- [Increase Target Staked Ratio](./increase_target_staked_ratio/): Updates the proof-of-stake target staked ratio parameter. Template for updating any PoS parameter.
+- [Update WASM Code](./update-wasm/): Template for updating WASM code hashes (for transactions or validity predicates) on-chain
+- [Update IBC Rate Limits](./update_ibc_rate_limits/): Adjusts IBC transfer rate limits for specified tokens
 
-## Phase 3 -> 4 (Shielding party -> Shielding Rewards party)
 
-Shielding rewards for governance-enabled IBC assets are enabled. Users begin collecting rewards for shielding assets, which protects their data and helps strengthen Namada’s unified shielded set.
+## 🛠️ Quick Start
 
-The reference code can be found in [phase4 folder](./phase4/).
+### Prerequisites
 
-## Phase 4 -> 5 (Shielding Reward party -> NAM Party)
+- [Rust](https://rustup.rs/) 1.85.1 with `wasm32-unknown-unknown` target
+- [Earthly](https://earthly.dev/get-earthly) for containerized builds
+- Python 3.6+ for proposal generation
+- `protobuf-compiler` and `clang` for compilation
 
-When the Namada community is confident that the network is stable, NAM transfers are enabled. All key protocol functionality is now live. From here on, new features and support for new assets can continue to be added by the community via on-chain governance.
+### Building WASM Artifacts
 
-The reference code can be found in [phase5 folder](./phase5/).
+Generate all phase transition WASM files:
 
-# How to build 
-To generate the wasm artifacts that can be attached to the governance proposal, run:
-```
+```bash
 earthly +build
 ```
 
-This will create a folder called `artifacts` that contains the WASMs.
+This creates an `artifacts/` directory containing optimized WASM binaries ready for governance proposals.
 
-You can install `earthly` following the official guide [here](https://earthly.dev/get-earthly).
+### Alternative: Local Build
 
-# How to generate a proposal
-Use the python script `build_proposal.py` inside the build directory to build any of the four proposals that progress to the next phase:
+```bash
+# Install WASM target (if not already installed)
+rustup target add wasm32-unknown-unknown
+
+# Build all proposals
+cargo build --release --target wasm32-unknown-unknown
+
+# Manually optimize with wasm-opt (optional)
+./docker/download-wasmopt.sh
+./docker/run-wasmopt.sh
 ```
-python3 builder/build_proposal.py -d $PARAMETERS_PATH -o $OUTPUT_PATH
+
+## 📋 Creating Governance Proposals
+
+### Generate a Proposal
+
+Use the proposal builder to create governance-ready JSON:
+
+```bash
+python3 builder/build_proposal.py -d <parameters_file> -o <output_file>
 ```
-The `$PARAMETERS_PATH` is a json file that contains some parameters and values needed to properly construct a proposal. For example, to build the phase1 to phase2 proposal:
+
+### Example: Phase 2 Proposal
+
+```bash
+python3 builder/build_proposal.py -d builder/parameters/phase2.json -o phase2_proposal.json
 ```
-python3 builder/build_proposal.py -d builder/parameters/phase2.json -o proposal.json
+
+## 🔍 Verification & Validation
+
+### Check On-Chain WASM Integrity
+
+Verify that deployed WASM matches your local artifacts using the included verification tool:
+
+```bash
+cd check-onchain-wasm
+cargo build --release
+
+# Check a specific proposal
+./target/release/check-onchain-wasm \
+  --tendermint-url <RPC_URL> \
+  --proposal-id $PROPOSAL_ID \
+  [--expected-hash $HASH]
 ```
+
+See [`check-onchain-wasm/README.md`](./check-onchain-wasm/README.md) for detailed usage.
+
+### Development & Testing
+
+Use Earthly for comprehensive development workflows:
+
+```bash
+# Run all checks (recommended)
+earthly +all
+
+# Individual targets:
+earthly +test      # Run unit tests
+earthly +fmt       # Check code formatting  
+earthly +lint      # Run clippy lints
+earthly +check     # Compilation check
+```
+
+Alternatively, use Cargo directly:
+
+```bash
+# Format code
+cargo fmt
+
+# Run lints  
+cargo clippy --all-features --all-targets -- -D warnings
+
+# Test changes
+cargo test
+
+# Check compilation
+cargo check
+```
+## ⚠️ Important Notes
+
+> **Parameter Values:** Current parameter values in template files are placeholders and subject to change based on network conditions and governance decisions.
+
+> **Security:** Always verify WASM hashes and proposal content before voting. Use the provided verification tools.
+
+> **Testing:** This code directly affects mainnet governance. Thoroughly test all changes in testnet environments.
