@@ -1,6 +1,6 @@
 [package]
-name = "whitelist-hf-channels"
-description = "WASM transaction to whitelist channels for Osmosis testnet, Babylon mainnet, and Cosmos Hub mainnet."
+name = "whitelist-hf-cosmoshub"
+description = "WASM transaction to whitelist channel-26 Cosmos Hub mainnet."
 authors.workspace = true
 edition.workspace = true
 license.workspace = true
