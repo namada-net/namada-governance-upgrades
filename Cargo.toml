@@ -12,6 +12,7 @@ members = [
     "update-wasm",
     "update_ibc_rate_limits",
     "whitelist-hf-channels",
+    "whitelist-hf-cosmoshub",
 ]
 
 default-members = [
@@ -25,6 +26,7 @@ default-members = [
     "update-wasm",
     "update_ibc_rate_limits",
     "whitelist-hf-channels",
+    "whitelist-hf-cosmoshub",
 ]
 
 [workspace.package]
