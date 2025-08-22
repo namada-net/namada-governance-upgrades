@@ -1,7 +1,7 @@
 use namada_tx_prelude::*;
 
 // Channel ID(s) where the transfers are unlimited
-const CHANNEL_IDS: [&str; 4] = [
+const CHANNEL_IDS: [&str; 1] = [
     "channel-26", // new cosmoshub-4 channel (08/22/2025)
 ];
 
