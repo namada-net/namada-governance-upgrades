@@ -13,6 +13,7 @@ members = [
     "update_ibc_rate_limits",
     "whitelist-hf-channels",
     "whitelist-hf-cosmoshub",
+    "whitelist-hf-nobletestnet",
 ]
 
 default-members = [
@@ -27,6 +28,7 @@ default-members = [
     "update_ibc_rate_limits",
     "whitelist-hf-channels",
     "whitelist-hf-cosmoshub",
+    "whitelist-hf-nobletestnet",
 ]
 
 [workspace.package]
