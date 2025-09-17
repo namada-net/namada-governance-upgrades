@@ -18,63 +18,28 @@ const IBC_TOKENS: [(
     TokenTargetLockedAmount,
     KpGain,
     KdGain,
-); 7] = [
+); 14] = [
     (
         0,
-        "channel-1",
-        "uosmo",
-        1_500_000_000_000, // 1.5M OSMO
-        "4.74",
-        "8.05",
-    ),
-    (
-        0,
-        "channel-2",
-        "uatom",
-        125_000_000_000, // 125k ATOM
-        "126",
-        "214",
-    ),
-    (
-        0,
-        "channel-3",
-        "utia",
-        110_000_000_000, // 110K TIA
-        "50",
-        "85",
-    ),
-    (
-        0,
-        "channel-0",
-        "stuosmo",
-        700_000_000_000, // 700k stOSMO
-        "63",
-        "107",
-    ),
-    (
-        0,
-        "channel-0",
-        "stuatom",
-        15_000_000_000, // 15k stATOM
-        "2032",
-        "3455",
-    ),
-    (
-        0,
-        "channel-0",
-        "stutia",
-        50_000_000_000, // 50k stTIA
-        "563",
-        "956",
-    ),
-    (
-        0,
-        "channel-5",
+        "channel-27",
         "uusdc",
-        1_100_000_000_000, // 1.1M USDC
-        "29",
-        "49",
+        1_500_000_000, // 1.5K USDC
+        "666",
+        "666",
     ),
+    (0, "channel-10", "utia", 0, "666", "666"),
+    (0, "channel-13", "utia", 0, "666", "666"),
+    (0, "channel-15", "stutia", 0, "666", "666"),
+    (0, "channel-15", "stuatom", 0, "666", "666"),
+    (0, "channel-15", "stuosmo", 0, "666", "666"),
+    (0, "channel-16", "uatom", 0, "666", "666"),
+    (0, "channel-17", "utia", 0, "666", "666"),
+    (0, "channel-18", "uosmo", 0, "666", "666"),
+    (0, "channel-7", "uosmo", 0, "666", "666"),
+    (0, "channel-8", "stuosmo", 0, "666", "666"),
+    (0, "channel-8", "stuatom", 0, "666", "666"),
+    (0, "channel-8", "stutia", 0, "666", "666"),
+    (0, "channel-9", "uatom", 0, "666", "666"),
 ];
 
 #[transaction]
