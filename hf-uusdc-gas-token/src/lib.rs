@@ -29,12 +29,11 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     let mut minimum_gas_price: BTreeMap<Address, token::Amount> =
         ctx.read(&gas_cost_key)?.unwrap_or_default();
 
-    // Enable IBC deposit/withdraws limits
+    // Set gas cost for each token
     for (channel_id, base_token, can_be_used_as_gas) in GAS_TOKENS {
         let ibc_denom = format!("transfer/{channel_id}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom).clone();
 
-        // Check if this ibc token should can also be used to pay for gas
         if let Some(gas) = can_be_used_as_gas {
             minimum_gas_price.insert(token_address.clone(), gas);
         }
