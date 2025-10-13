@@ -3,6 +3,24 @@
 version = 4
 
 [[package]]
+name = "add-uusdc-gas-token"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "add-uusdn-token"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "aead"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2073,16 +2091,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "increase_target_staked_ratio"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_proof_of_stake",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
 name = "incrementalmerkletree"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2268,11 +2276,10 @@ checksum = "b4ce301924b7887e9d637144fdade93f9dfff9b60981d4ac161db09720d39aa5"
 
 [[package]]
 name = "lock_api"
-version = "0.4.12"
+version = "0.4.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07af8b9cdd281b7915f413fa73f29ebd5d55d0d3f0155584dade1ff18cea1b17"
+checksum = "224399e74b87b5f3557511d98dff8b14089b3dadafcab6bb93eab67d3aace965"
 dependencies = [
- "autocfg",
  "scopeguard",
 ]
 
@@ -3147,52 +3154,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "phase2"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_proof_of_stake",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
-name = "phase3"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
-name = "phase4"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
-name = "phase5a"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
-name = "phase5b"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
 name = "pin-project-lite"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3251,15 +3212,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "85eae3c4ed2f50dcfe72643da4befc30deadb458a9b590d720cde2f2b1e97da9"
 dependencies = [
  "zerocopy 0.8.25",
-]
-
-[[package]]
-name = "pre-phase4"
-version = "0.1.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
 ]
 
 [[package]]
@@ -4328,8 +4280,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "update-wasm"
-version = "0.1.0"
+name = "update-staking-inflation-parameters"
+version = "1.0.0"
 dependencies = [
  "getrandom 0.2.16",
  "namada_tx_prelude",
@@ -4337,11 +4289,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "update_ibc_rate_limits"
-version = "0.1.0"
+name = "update-wasm"
+version = "1.0.0"
 dependencies = [
  "getrandom 0.2.16",
- "namada_ibc",
  "namada_tx_prelude",
  "rlsf",
 ]
@@ -4489,24 +4440,24 @@ dependencies = [
 
 [[package]]
 name = "windows-link"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76840935b766e1b0a05c0066835fb9ec80071d4c09a16f6bd5f7e655e3c14c38"
+checksum = "5e6ad25900d524eaabdbbb96d20b4311e1e7ae1699af4fb28c17ae66c80d798a"
 
 [[package]]
 name = "windows-result"
-version = "0.3.2"
+version = "0.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c64fd11a4fd95df68efcfee5f44a294fe71b8bc6a91993e2791938abcc712252"
+checksum = "56f42bd332cc6c8eac5af113fc0c1fd6a8fd2aa08a0119358686e5160d0586c6"
 dependencies = [
  "windows-link",
 ]
 
 [[package]]
 name = "windows-strings"
-version = "0.4.0"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7a2ba9642430ee452d5a7aa78d72907ebe8cfda358e8cb7918a2050581322f97"
+checksum = "56e6c93f3a0c3b36176cb1327a4958a0353d5d166c2a35cb268ace15e91d3b57"
 dependencies = [
  "windows-link",
 ]

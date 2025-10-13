@@ -1,0 +1,17 @@
+[package]
+name = "add-uusdn-token"
+description = "WASM transaction to whitelist transfer/channel-27/uusdc as ibc channel as as gas token."
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+namada_tx_prelude_01491.workspace = true
+rlsf.workspace = true
+getrandom.workspace = true
+
+[lib]
+crate-type = ["cdylib"]

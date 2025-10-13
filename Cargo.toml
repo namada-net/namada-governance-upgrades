@@ -2,39 +2,23 @@
 resolver = "2"
 
 members = [
-    "phase2",
-    "phase3",
-    "pre-phase4",
-    "phase4",
-    "phase5a",
-    "phase5b",
-    "increase_target_staked_ratio",
-    "update-wasm",
-    "update_ibc_rate_limits",
-]
-
-default-members = [
-    "phase2",
-    "phase3",
-    "pre-phase4",
-    "phase4",
-    "phase5a",
-    "phase5b",
-    "increase_target_staked_ratio",
-    "update-wasm",
-    "update_ibc_rate_limits",
+    "proposals/testnet/add-uusdc-gas-token",
+    "proposals/mainnet/update-staking-inflation-parameters",
+    "proposals/mainnet/add-uusdn-token",
+    "proposals/template/update-wasm"
 ]
 
 [workspace.package]
 authors = ["Heliax AG <hello@heliax.dev>"]
 edition = "2021"
 license = "GPL-3.0"
-version = "0.1.0"
+version = "1.0.0"
 
 [workspace.dependencies]
-namada_tx_prelude = { git = "https://github.com/anoma/namada", tag = "libs-v0.149.1" }
-namada_proof_of_stake = { git = "https://github.com/anoma/namada", tag = "libs-v0.149.1" }
-namada_ibc = { git = "https://github.com/anoma/namada", tag = "libs-v0.149.1" }
+namada_tx_prelude_01491 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.149.1" }
+namada_tx_prelude_01502 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.150.2" }
+namada_tx_prelude_01510 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.151.0" }
+
 rlsf = "0.2.1"
 getrandom = { version = "0.2", features = ["custom"] }
 lazy_static = "1.4.0"
