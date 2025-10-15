@@ -5,7 +5,8 @@ members = [
     "proposals/testnet/add-uusdc-gas-token",
     "proposals/mainnet/update-staking-inflation-parameters",
     "proposals/mainnet/add-uusdn-token",
-    "proposals/template/update-wasm"
+    "proposals/template/update-wasm",
+    "proposals/testnet/increase-masp-fee-limit",
 ]
 
 [workspace.package]

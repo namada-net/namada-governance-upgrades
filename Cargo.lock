@@ -2091,6 +2091,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "increase-masp-fee-limit"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "incrementalmerkletree"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

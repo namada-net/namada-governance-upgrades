@@ -28,6 +28,8 @@ jobs:
             id: update-staking-inflation-parameters
           - path: proposals/testnet/add-uusdc-gas-token
             id: add-uusdc-gas-token
+          - path: proposals/testnet/increase-masp-fee-limit
+            id: increase-masp-fee-limit
     env:
       GIT_LFS_SKIP_SMUDGE: 1
       REGISTRY_URL: ghcr.io
