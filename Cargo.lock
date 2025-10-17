@@ -3163,6 +3163,52 @@ dependencies = [
 ]
 
 [[package]]
+name = "phase2"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_proof_of_stake",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "phase3"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "phase4"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "phase5a"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "phase5b"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "pin-project-lite"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"

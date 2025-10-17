@@ -6,7 +6,7 @@ members = [
     "proposals/mainnet/update-staking-inflation-parameters",
     "proposals/mainnet/add-uusdn-token",
     "proposals/template/update-wasm",
-    "proposals/testnet/increase-masp-fee-limit",
+    "proposals/testnet/increase-masp-fee-limit", "proposals/mainnet_phases/phase2", "proposals/mainnet_phases/phase3", "proposals/mainnet_phases/phase4", "proposals/mainnet_phases/phase5a", "proposals/mainnet_phases/phase5b",
 ]
 
 [workspace.package]
@@ -18,6 +18,8 @@ version = "1.0.0"
 [workspace.dependencies]
 namada_tx_prelude_01502 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.150.2" }
 namada_tx_prelude_02512 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.251.2" }
+namada_proof_of_stake_01502 = { package = "namada_proof_of_stake", git = "https://github.com/anoma/namada", tag = "libs-v0.150.2" }
+namada_proof_of_stake_02512 = { package = "namada_proof_of_stake", git = "https://github.com/anoma/namada", tag = "libs-v0.251.2" }
 
 rlsf = "0.2.1"
 getrandom = { version = "0.2", features = ["custom"] }
