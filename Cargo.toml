@@ -8,7 +8,7 @@ members = [
     "phase4",
     "phase5a",
     "phase5b",
-    "increase_target_staked_ratio",
+    "update_gas_params",
     "update-wasm",
     "update_ibc_rate_limits",
 ]
@@ -20,7 +20,7 @@ default-members = [
     "phase4",
     "phase5a",
     "phase5b",
-    "increase_target_staked_ratio",
+    "update_gas_params",
     "update-wasm",
     "update_ibc_rate_limits",
 ]

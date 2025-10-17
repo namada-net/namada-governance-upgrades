@@ -1,5 +1,5 @@
 [package]
-name = "increase_target_staked_ratio"
+name = "update_gas_params"
 authors.workspace = true
 edition.workspace = true
 license.workspace = true
