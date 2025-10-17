@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use namada_tx_prelude::{parameters::storage::get_gas_cost_key, *};
-use namada_tx_prelude_01491 as namada_tx_prelude;
+use namada_tx_prelude_01502 as namada_tx_prelude;
 
 pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;

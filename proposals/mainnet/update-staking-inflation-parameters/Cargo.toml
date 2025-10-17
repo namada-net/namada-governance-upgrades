@@ -7,7 +7,7 @@ license.workspace = true
 version.workspace = true
 
 [dependencies]
-namada_tx_prelude_01491.workspace = true
+namada_tx_prelude_01502.workspace = true
 rlsf.workspace = true
 getrandom.workspace = true
 
