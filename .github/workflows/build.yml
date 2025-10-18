@@ -30,6 +30,8 @@ jobs:
             id: add-uusdc-gas-token
           - path: proposals/testnet/increase-masp-fee-limit
             id: increase-masp-fee-limit
+          - path: proposals/mainnet_phases/phase2
+            id: phase2
     env:
       GIT_LFS_SKIP_SMUDGE: 1
       REGISTRY_URL: ghcr.io
