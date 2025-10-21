@@ -11,6 +11,7 @@ members = [
     "increase_target_staked_ratio",
     "update-wasm",
     "update_ibc_rate_limits",
+    "hf-atoms-gas-token",
 ]
 
 default-members = [
@@ -23,6 +24,7 @@ default-members = [
     "increase_target_staked_ratio",
     "update-wasm",
     "update_ibc_rate_limits",
+    "hf-atoms-gas-token",
 ]
 
 [workspace.package]
