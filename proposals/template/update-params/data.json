@@ -1,15 +1,11 @@
 {
     "rust-version": "1.85.1",
     "proposal": {
-        "title": "Insert title.",
-        "authors": "Bob The Builer <bob@thebuilder.rock>",
-        "discussions-to": "www.bob-the-builder.forum.rock",
-        "abstract": "OPTIONAL: You can put an abstract here if you'd like.",
-        "motivation": "OPTIONAL: You can put a motivation here if you'd like.",
-        "details": "Put proposal details here.",
-        "author": "tnam1qxfj3sf6a0meahdu9t6znp05g8zx4dkjtgyn9gfu",
-        "voting_start_epoch": 6,
-        "voting_end_epoch": 12,
-        "activation_epoch": 18
+        "title": "Increase the unbonding period",
+        "details": "Increase the unbonding period from 53 epochs to 212. This is important in order to extend the IBC trust period for channels and ensure that channels expire much less frequently.",
+        "author": "tnam1qznk3qdth2r4ree2lgy9y459ajnzrke58y363qjq",
+        "voting_start_epoch": 7085,
+        "voting_end_epoch": 7109,
+        "activation_epoch": 7110
     }
 }
