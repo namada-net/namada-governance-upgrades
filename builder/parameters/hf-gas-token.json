@@ -1,0 +1,15 @@
+{
+  "title": "Allow channel-28 uatom as gas token",
+  "authors": "mateusz@heliax.dev",
+  "author": "tnam1qpkf98snxuy0dqj5yk3fpkvqxwgr2kq4759jtkld",
+  "details": "Wasm source: https://github.com/mateuszjasiuk/namada-governance-upgrades/blob/feat/allow-new-atom-as-gas-token-in-hf/hf-atoms-gas-token/src/lib.rs\nPR used: https://github.com/namada-net/namada-governance-upgrades/pull/77",
+  "discussions-to": "all good nw nw",
+  "license": "SPQR",
+  "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "motivation": " Vivamus eget ex id erat interdum dictum vel ac libero.",
+  "requires": "-1",
+  "voting_start_epoch": 7092,
+  "voting_end_epoch": 7095,
+  "activation_epoch": 7097,
+  "wasm_path": "artifacts/hf_atom_gas_token.wasm"
+}
