@@ -10,7 +10,6 @@ members = [
     "proposals/mainnet_phases/phase4",
     "proposals/mainnet_phases/phase5a",
     "proposals/mainnet_phases/phase5b",
-    "proposals/mainnet/add-uusdn-token"
 ]
 
 [workspace.package]
