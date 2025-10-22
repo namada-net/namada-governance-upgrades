@@ -8,9 +8,8 @@
   "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   "motivation": " Vivamus eget ex id erat interdum dictum vel ac libero.",
   "requires": "-1",
-  "voting_start_epoch": 9,
-  "voting_end_epoch": 18,
-  "activation_epoch": 25,
-  "wasm_path": "./hf_atom_gas_token.wasm"
+  "voting_start_epoch": 7092,
+  "voting_end_epoch": 7095,
+  "activation_epoch": 7097,
+  "wasm_path": "artifacts/hf_atom_gas_token.wasm"
 }
-
