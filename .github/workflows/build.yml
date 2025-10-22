@@ -22,14 +22,12 @@ jobs:
       fail-fast: false
       matrix:
         proposal:
-          - path: proposals/mainnet/add-uusdn-token
-            id: add-uusdn-token
-          - path: proposals/mainnet/update-staking-inflation-parameters
-            id: update-staking-inflation-parameters
-          - path: proposals/testnet/add-uusdc-gas-token
-            id: add-uusdc-gas-token
-          - path: proposals/testnet/increase-masp-fee-limit
-            id: increase-masp-fee-limit
+          - path: proposals/template/whitelist-token
+            id: whitelist-token
+          - path: proposals/template/update-params
+            id: update-params
+          - path: proposals/template/update-wasm
+            id: update-wasm
           - path: proposals/mainnet_phases/phase2
             id: phase2
     env:

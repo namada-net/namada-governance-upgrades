@@ -2,11 +2,15 @@
 resolver = "2"
 
 members = [
-    "proposals/testnet/add-uusdc-gas-token",
-    "proposals/mainnet/update-staking-inflation-parameters",
-    "proposals/mainnet/add-uusdn-token",
     "proposals/template/update-wasm",
-    "proposals/testnet/increase-masp-fee-limit", "proposals/mainnet_phases/phase2", "proposals/mainnet_phases/phase3", "proposals/mainnet_phases/phase4", "proposals/mainnet_phases/phase5a", "proposals/mainnet_phases/phase5b",
+    "proposals/template/update-params",
+    "proposals/template/whitelist-token",
+    "proposals/mainnet_phases/phase2",
+    "proposals/mainnet_phases/phase3",
+    "proposals/mainnet_phases/phase4",
+    "proposals/mainnet_phases/phase5a",
+    "proposals/mainnet_phases/phase5b",
+    "proposals/mainnet/add-uusdn-token"
 ]
 
 [workspace.package]

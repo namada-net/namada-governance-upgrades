@@ -3,15 +3,6 @@
 version = 4
 
 [[package]]
-name = "add-uusdc-gas-token"
-version = "1.0.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
-]
-
-[[package]]
 name = "add-uusdn-token"
 version = "1.0.0"
 dependencies = [
@@ -2088,15 +2079,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.101",
-]
-
-[[package]]
-name = "increase-masp-fee-limit"
-version = "1.0.0"
-dependencies = [
- "getrandom 0.2.16",
- "namada_tx_prelude",
- "rlsf",
 ]
 
 [[package]]
@@ -4335,10 +4317,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "update-staking-inflation-parameters"
+name = "update-params"
 version = "1.0.0"
 dependencies = [
  "getrandom 0.2.16",
+ "namada_proof_of_stake",
  "namada_tx_prelude",
  "rlsf",
 ]
@@ -4456,6 +4439,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1a05d73b933a847d6cccdda8f838a22ff101ad9bf93e33684f39c1f5f0eece3d"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "whitelist-token"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
 ]
 
 [[package]]
