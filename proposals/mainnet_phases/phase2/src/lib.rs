@@ -1,3 +1,8 @@
+//! Update the proof-of-stake parameters to turn on PoS inflation and PGF inflation.
+//!
+//! This is a good example demonstrating how to update certain protocol parameters.
+//!
+
 use dec::Dec;
 use namada_proof_of_stake::storage::{read_pos_params, write_pos_params};
 use namada_proof_of_stake_01502 as namada_proof_of_stake;

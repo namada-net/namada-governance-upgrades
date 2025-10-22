@@ -1,3 +1,12 @@
+//! Whitelist initial set of IBC tokens to enter Namada.
+//!
+//! This is a good example that demonstrates several different operations:
+//! - Setting rate limits for new tokens
+//! - Writing to the token map, needed for future incentivized rewards
+//! - Whitelisting a token for use as a gas token and setting the gas cost
+//! - Initializing shielded inflation data for a token
+//!
+
 use std::collections::BTreeMap;
 
 use dec::Dec;

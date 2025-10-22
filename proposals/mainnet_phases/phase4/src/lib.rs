@@ -1,3 +1,9 @@
+//! Enable shielded set rewards for IBC tokens.
+//!
+//! This is a good example that demonstrates the activation of shielded set rewards for an existing token
+//! in Namada.
+//!
+
 use dec::Dec;
 use namada_tx_prelude::*;
 use namada_tx_prelude_01502 as namada_tx_prelude;
