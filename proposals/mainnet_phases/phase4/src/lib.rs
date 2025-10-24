@@ -6,7 +6,7 @@
 
 use dec::Dec;
 use namada_tx_prelude::*;
-use namada_tx_prelude_01502 as namada_tx_prelude;
+use namada_tx_prelude_02512 as namada_tx_prelude;
 use std::str::FromStr;
 use token::storage_key::balance_key;
 

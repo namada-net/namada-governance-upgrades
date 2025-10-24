@@ -7,6 +7,7 @@ use parameters_storage::get_gas_cost_key;
 
 pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;
+pub type Precision = u64;
 
 pub type MintTokenLimit = token::Amount;
 pub type ThroughtputTokenLimit = token::Amount;
@@ -14,21 +15,28 @@ pub type Gas = token::Amount;
 pub type MinimumGasPrice = Option<Gas>;
 pub type MayBeIncentivized = bool;
 
-const IBC_TOKENS: [(
-    ChannelId,
-    BaseToken,
-    MintTokenLimit,
-    ThroughtputTokenLimit,
-    MinimumGasPrice,
-    MayBeIncentivized,
-); 1] = [(
-    "channel-X",
-    "utoken",
-    MintTokenLimit::from_u64(1_000_000),        // 1M utoken
-    ThroughtputTokenLimit::from_u64(1_000_000), // 1M utoken
-    Some(Gas::from_u64(10)),                    // 10 utoken / gas unit
-    true,
-)];
+const OSMO_CHANNEL_ID: &str = "channel-29";
+const MINT_LIMIT: u64 = 1_000_000;
+const THROUGHPUT_LIMIT: u64 = 1_000_000;
+const MINIMUM_GAS_PRICE: u64 = 1;
+const MAY_BE_INCENTIVIZED: bool = true;
+
+const OSMO_TOKENS: [(BaseToken, Precision); 5] = [
+    (
+        "factory/osmo1z6r6qdknhgsc0zeracktgpcxf43j6sekq07nw8sxduc9lg0qjjlqfu25e3/alloyed/allBTC", // Bitcoin (alloyed)
+        8,
+    ),
+    ("transfer/channel-6994/utia", 6), // Celestia
+    ("transfer/channel-208/uusdt", 6), // Tether USD (Ethereum via Axelar)
+    (
+        "factory/osmo1k6c8jln7ejuqwtqmay3yvzrg3kueaczl96pk067ldg8u835w0yhsw27twm/alloyed/allETH", // Ethereum (alloyed)
+        18,
+    ),
+    (
+        "transfer/channel-0/transfer/08-wasm-1369/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // Ethereum (Eureka)
+        18,
+    ),
+];
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
@@ -37,24 +45,13 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     let mut minimum_gas_price: BTreeMap<Address, token::Amount> =
         ctx.read(&gas_cost_key)?.unwrap_or_default();
 
-    // Read the current MASP token map
-    let token_map_key = token::storage_key::masp_token_map_key();
-    let mut token_map = ctx
-        .read::<masp::TokenMap>(&token_map_key)?
-        .unwrap_or_default();
-
     // Enable IBC deposit/withdraws limits
-    for (
-        channel_id,
-        base_token,
-        mint_limit,
-        throughput_limit,
-        can_be_used_as_gas,
-        may_be_incentivized,
-    ) in IBC_TOKENS
-    {
-        let ibc_denom = format!("transfer/{channel_id}/{base_token}");
+    for (base_token, precision) in OSMO_TOKENS {
+        let ibc_denom = format!("transfer/{OSMO_CHANNEL_ID}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom).clone();
+
+        let mint_limit = MintTokenLimit::from_u64(MINT_LIMIT * precision);
+        let throughput_limit = ThroughtputTokenLimit::from_u64(THROUGHPUT_LIMIT * precision);
 
         let mint_limit_token_key = ibc::mint_limit_key(&token_address);
         ctx.write(&mint_limit_token_key, mint_limit)?;
@@ -63,14 +60,15 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         ctx.write(&throughput_limit_token_key, throughput_limit)?;
 
         // Check if this ibc token should can also be used to pay for gas
-        if let Some(gas) = can_be_used_as_gas {
-            minimum_gas_price.insert(token_address.clone(), gas);
-        }
+        minimum_gas_price.insert(
+            token_address.clone(),
+            token::Amount::from_u64(MINIMUM_GAS_PRICE),
+        );
 
         // Initialize some data if this token may be incentivized in the future
-        if may_be_incentivized {
+        if MAY_BE_INCENTIVIZED {
             // Add the ibc token to the masp token map
-            token_map.insert(ibc_denom, token_address.clone());
+            // token_map.insert(ibc_denom, token_address.clone());
 
             // Write some null MASP reward data
             let shielded_token_last_inflation_key =
@@ -103,7 +101,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
     ctx.write(&gas_cost_key, minimum_gas_price)?;
 
     // Write the token map back to storage
-    ctx.write(&token_map_key, token_map)?;
+    // ctx.write(&token_map_key, token_map)?;
 
     Ok(())
 }

@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 use namada_tx_prelude::{hash::Hash, *};
-use namada_tx_prelude_01502 as namada_tx_prelude;
+use namada_tx_prelude_02512 as namada_tx_prelude;
 
 // The following are just example strings.
 // In practice, replace them with what is in and intended to go into the DB onchain.

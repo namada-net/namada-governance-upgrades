@@ -5,9 +5,9 @@
 
 use dec::Dec;
 use namada_proof_of_stake::storage::{read_pos_params, write_pos_params};
-use namada_proof_of_stake_01502 as namada_proof_of_stake;
+use namada_proof_of_stake_02512 as namada_proof_of_stake;
 use namada_tx_prelude::*;
-use namada_tx_prelude_01502 as namada_tx_prelude;
+use namada_tx_prelude_02512 as namada_tx_prelude;
 
 use std::str::FromStr;
 

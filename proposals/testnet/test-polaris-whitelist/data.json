@@ -1,0 +1,15 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "title": "Insert title.",
+        "authors": "Bob The Builer <bob@thebuilder.rock>",
+        "discussions-to": "www.bob-the-builder.forum.rock",
+        "abstract": "OPTIONAL: You can put an abstract here if you'd like.",
+        "motivation": "OPTIONAL: You can put a motivation here if you'd like.",
+        "details": "Put proposal details here.",
+        "author": "tnam1qxfj3sf6a0meahdu9t6znp05g8zx4dkjtgyn9gfu",
+        "voting_start_epoch": 6,
+        "voting_end_epoch": 12,
+        "activation_epoch": 18
+    }
+}
