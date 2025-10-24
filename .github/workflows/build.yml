@@ -18,26 +18,43 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        proposal:
+          - path: proposals/template/whitelist-token
+            id: whitelist-token
+          - path: proposals/template/update-params
+            id: update-params
+          - path: proposals/template/update-wasm
+            id: update-wasm
+          - path: proposals/mainnet/update-staking-inflation-parameters
+            id: update-staking-inflation-parameters
+
     env:
       GIT_LFS_SKIP_SMUDGE: 1
       REGISTRY_URL: ghcr.io
       FORCE_COLOR: 1
+    
 
     steps:
     - uses: earthly/actions-setup@v1
       with:
         version: "latest"
     - uses: actions/checkout@v4
+    - uses: actions/setup-python@v6
+      with:
+        python-version: '3.13' 
     - name: Login to GHCR
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build WASM
-      run: earthly +build
+    - name: Build Proposals
+      run: python3 -u builder/build_proposals.py --directory ${{ matrix.proposal.path }}
     - name: Upload WASM
       uses: actions/upload-artifact@v4
       with:
-        name: wasm-${{ github.sha }}
+        name: proposals-${{ matrix.proposal.id }}-${{ github.sha }}
         path: artifacts/

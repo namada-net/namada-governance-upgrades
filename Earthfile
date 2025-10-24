@@ -1,24 +1,28 @@
-VERSION --global-cache 0.8
+VERSION 0.8
 
 IMPORT github.com/earthly/lib/rust AS rust
 
+ARG RUST_VERSION
+ARG PACKAGE
+
 install:
-  FROM rust:1.85.1-bookworm
+  ARG RUST_VERSION
+  FROM rust:${RUST_VERSION}-bookworm
+
   RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-tools-14
-  
+
   RUN rustup component add clippy rustfmt
   RUN rustup target add wasm32-unknown-unknown
 
-  # Call +INIT before copying the source file to avoid installing function depencies every time source code changes
-  # This parametrization will be used in future calls to functions of the library
   DO rust+INIT --keep_fingerprints=true
 
 source:
   FROM +install
+
   COPY --keep-ts Cargo.toml Cargo.lock ./
   COPY --keep-ts --chmod 755 docker/run-wasmopt.sh ./run-wasmopt.sh
   COPY --keep-ts --chmod 755 docker/download-wasmopt.sh ./download-wasmopt.sh
-  COPY --keep-ts --dir phase2 phase3 phase4 phase5a phase5b pre-phase4 update_ibc_rate_limits increase_target_staked_ratio update-wasm ./
+  COPY --keep-ts --dir proposals ./
 
 # lint runs cargo clippy on the source code
 lint:
@@ -30,13 +34,15 @@ check:
   FROM +lint
   DO rust+CARGO --args="check"
 
-# build builds with the Cargo release profile
+# builds with the Cargo release profile
 build:
+  ARG PACKAGE
+
   FROM +lint
-  DO rust+CARGO --args="build --release --target wasm32-unknown-unknown" --output="wasm32-unknown-unknown\/release\/[a-zA-Z_1-9]+\.wasm"
+  DO rust+CARGO --args="build --package ${PACKAGE} --release --target wasm32-unknown-unknown" --output="wasm32-unknown-unknown\/release\/[a-zA-Z_1-9]+\.wasm"
   RUN ./download-wasmopt.sh
   RUN ./run-wasmopt.sh
-  SAVE ARTIFACT ./target/wasm32-unknown-unknown/release AS LOCAL artifacts
+  SAVE ARTIFACT ./target/wasm32-unknown-unknown/release AS LOCAL artifacts/wasms
 
 # test executes all unit and integration tests via Cargo
 test:
