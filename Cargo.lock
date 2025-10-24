@@ -3,6 +3,15 @@
 version = 4
 
 [[package]]
+name = "add-uusdc-gas-token"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "aead"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4313,6 +4322,15 @@ version = "1.0.0"
 dependencies = [
  "getrandom 0.2.16",
  "namada_proof_of_stake",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
+name = "update-staking-inflation-parameters"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
  "namada_tx_prelude",
  "rlsf",
 ]

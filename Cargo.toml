@@ -10,6 +10,8 @@ members = [
     "proposals/mainnet_phases/phase4",
     "proposals/mainnet_phases/phase5a",
     "proposals/mainnet_phases/phase5b",
+    "proposals/mainnet/update-staking-inflation-parameters",
+    "proposals/testnet/add-uusdc-gas-token",
 ]
 
 [workspace.package]

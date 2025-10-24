@@ -22,10 +22,8 @@ Template code for common governance proposal patterns:
 
 Use these as starting points for new proposals.
 
-<!-- ### `proposals/mainnet/` & `proposals/testnet/`
-Active proposals organized by target network:
-- `mainnet/` - Live mainnet proposals
-- `testnet/` - Testnet proposals for testing -->
+### `proposals/mainnet/` & `proposals/testnet/`
+Use these folders for development or to hold actual mainnet and testnet proposals
 
 ## 🔧 Building Proposals
 

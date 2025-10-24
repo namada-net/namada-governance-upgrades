@@ -28,6 +28,8 @@ jobs:
             id: update-params
           - path: proposals/template/update-wasm
             id: update-wasm
+          - path: proposals/mainnet/update-staking-inflation-parameters
+            id: update-staking-inflation-parameters
 
     env:
       GIT_LFS_SKIP_SMUDGE: 1
