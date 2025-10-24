@@ -4,7 +4,7 @@ use namada_tx_prelude::{
     proof_of_stake::storage::{read_pos_params, write_pos_params},
     *,
 };
-use namada_tx_prelude_02512 as namada_tx_prelude;
+use namada_tx_prelude_01502 as namada_tx_prelude;
 
 use std::str::FromStr;
 

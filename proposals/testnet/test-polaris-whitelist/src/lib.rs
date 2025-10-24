@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 
 use dec::Dec;
 use namada_tx_prelude::*;
-use namada_tx_prelude_02512 as namada_tx_prelude;
+use namada_tx_prelude_01502 as namada_tx_prelude;
 use parameters_storage::get_gas_cost_key;
 
 pub type ChannelId = &'static str;

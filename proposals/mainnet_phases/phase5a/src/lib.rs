@@ -1,5 +1,5 @@
 use namada_tx_prelude::*;
-use namada_tx_prelude_02512 as namada_tx_prelude;
+use namada_tx_prelude_01502 as namada_tx_prelude;
 
 #[transaction]
 fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
