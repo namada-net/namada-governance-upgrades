@@ -1,0 +1,13 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "title": "Whitelist tokens over the Osmosis IBC channel for Polaris integration.",
+        "authors": "Bob The Builer <bob@thebuilder.rock>",
+        "discussions-to": "www.forum.namada.net/future-polaris-post",
+        "details": "This proposal aims to unblock further development of the Polaris integration from the future mainnet upgrade to v201.0.6. This is accomplished by manually whitelisting many tokens over the Osmosis IBC channel in a manner that makes interacting with these tokens and Namada nearly-permissionless.\n\nThe code used to generate the attached wasm can be found here: <insert-final-link>",
+        "author": "tnam1qrk6vlc9wy95p2hwntwejm8g4kjc39ha65y2vucx",
+        "voting_start_epoch": 1310,
+        "voting_end_epoch": 1330,
+        "activation_epoch": 1331
+    }
+}
