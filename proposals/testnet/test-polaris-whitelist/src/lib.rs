@@ -50,8 +50,9 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let ibc_denom = format!("transfer/{OSMO_CHANNEL_ID}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom).clone();
 
-        let mint_limit = MintTokenLimit::from_u64(MINT_LIMIT * precision);
-        let throughput_limit = ThroughtputTokenLimit::from_u64(THROUGHPUT_LIMIT * precision);
+        let factor = 10u64.pow(precision as u32);
+        let mint_limit = MintTokenLimit::from_u64(MINT_LIMIT * factor);
+        let throughput_limit = ThroughtputTokenLimit::from_u64(THROUGHPUT_LIMIT * factor);
 
         let mint_limit_token_key = ibc::mint_limit_key(&token_address);
         ctx.write(&mint_limit_token_key, mint_limit)?;
