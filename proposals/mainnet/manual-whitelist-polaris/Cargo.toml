@@ -1,5 +1,5 @@
 [package]
-name = "test-polaris-whitelist"
+name = "manual-whitelist-polaris"
 authors.workspace = true
 edition.workspace = true
 license.workspace = true
