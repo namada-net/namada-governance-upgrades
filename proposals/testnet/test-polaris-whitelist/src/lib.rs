@@ -6,7 +6,7 @@ use parameters_storage::get_gas_cost_key;
 
 pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;
-pub type Precision = u64;
+pub type Precision = u32;
 
 pub type MintTokenLimit = token::Amount;
 pub type ThroughtputTokenLimit = token::Amount;
@@ -15,8 +15,8 @@ pub type MinimumGasPrice = Option<Gas>;
 pub type MayBeIncentivized = bool;
 
 const OSMO_CHANNEL_ID: &str = "channel-29";
-const MINT_LIMIT: u64 = 1_000_000;
-const THROUGHPUT_LIMIT: u64 = 1_000_000;
+const MINT_LIMIT: u128 = 1_000_000;
+const THROUGHPUT_LIMIT: u128 = 1_000_000;
 const MINIMUM_GAS_PRICE: u64 = 1;
 
 const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 117] = [
@@ -71,7 +71,7 @@ const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 117] = [
     ("transfer/channel-2186/factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/5wS2fGojbL9RhGEAeQBdkHPUAciYDxjDTMYvdf9aDn2r", 8,None), // Aptos Coin (Wormhole)
     ("transfer/channel-2186/factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/GGh9Ufn1SeDGrhzEkMyRKt5568VbbxZK2yvWNsd6PbXt", 6,None), // USDC (Ethereum via Wormhole)
     ("transfer/channel-2186/factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/5BWqpR48Lubd55szM5i62zK7TFkddckhbT48yy6mNbDp", 8,None), // Ethereum (Wormhole)
-    ("transfer/channel-750/uusdc", 6,None), // USDC
+    ("transfer/channel-750/uusdc", 6, Some(Gas::from_u64(MINIMUM_GAS_PRICE))), // USDC
     ("factory/osmo1s794h9rxggytja3a4pmwul53u98k06zy2qtrdvjnfuxruh7s8yjs6cyxgd/ucdt", 6,None), // CDT Stablecoin
     ("transfer/channel-6994/utia", 6,None), // Celestia
     ("transfer/channel-6787/adydx", 18,None), // dYdX Protocol (dYdX Protocol)
@@ -159,9 +159,9 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let ibc_denom = format!("transfer/{OSMO_CHANNEL_ID}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom).clone();
 
-        let factor = 10u64.pow(precision as u32);
-        let mint_limit = MintTokenLimit::from_u64(MINT_LIMIT * factor);
-        let throughput_limit = ThroughtputTokenLimit::from_u64(THROUGHPUT_LIMIT * factor);
+        let factor = 10u128.pow(precision);
+        let mint_limit = MintTokenLimit::from_u128(MINT_LIMIT * factor);
+        let throughput_limit = ThroughtputTokenLimit::from_u128(THROUGHPUT_LIMIT * factor);
 
         let mint_limit_token_key = ibc::mint_limit_key(&token_address);
         ctx.write(&mint_limit_token_key, mint_limit)?;
