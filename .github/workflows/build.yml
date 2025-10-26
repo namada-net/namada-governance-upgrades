@@ -28,8 +28,8 @@ jobs:
             id: update-params
           - path: proposals/template/update-wasm
             id: update-wasm
-          - path: proposals/mainnet/update-staking-inflation-parameters
-            id: update-staking-inflation-parameters
+          - path: proposals/testnet/test-incentivizing-after-basic-whitelist
+            id: test-incentivizing-after-basic-whitelist
 
     env:
       GIT_LFS_SKIP_SMUDGE: 1

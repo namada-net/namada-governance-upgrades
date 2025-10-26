@@ -1,0 +1,12 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "title": "Incentivize transfer/channel-29/uosmo for shielded rewards",
+        "discussions-to": "message Brent",
+        "details": "Turn on shielded set rewards for transfer/channel-29/uosmo, which was just simply whitelisted recently in Prop #82.\n\nThis token was never added to the token_map or had shiedled rewards keys initialized, so we write those here for the first time.\n\nCode used to generate the proposal is here: ",
+        "author": "tnam1qznk3qdth2r4ree2lgy9y459ajnzrke58y363qjq",
+        "voting_start_epoch": 7190,
+        "voting_end_epoch": 7192,
+        "activation_epoch": 7193
+    }
+}
