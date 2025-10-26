@@ -1,0 +1,13 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "content": {
+            "title": "Test large whitelist of Osmosis tokens - REDUX",
+            "details": "Follow-up proposal for Polaris integration testing. Also whitelist new native Osmosis token itself, forgot in Prop #80.\n\nThe code used to generate the wasm can be found here: https://github.com/namada-net/namada-governance-upgrades/blob/d871e8f516c7563de3dcdfdc1e03b53bf3a9bfae/proposals/testnet/test-polaris-whitelist/src/lib.rs."
+        },
+        "author": "tnam1qznk3qdth2r4ree2lgy9y459ajnzrke58y363qjq",
+        "voting_start_epoch": 7190,
+        "voting_end_epoch": 7192,
+        "activation_epoch": 7193
+    }
+}
