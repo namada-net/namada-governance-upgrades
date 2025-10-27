@@ -13,7 +13,9 @@ pub type TokenMaxReward = &'static str;
 pub type TokenTargetLockedAmount = u64;
 pub type KpGain = &'static str;
 pub type KdGain = &'static str;
+pub type Precision = u128;
 
+#[allow(clippy::type_complexity)]
 const IBC_TOKENS: [(
     Denomination,
     ChannelId,
@@ -22,6 +24,7 @@ const IBC_TOKENS: [(
     TokenTargetLockedAmount,
     KpGain,
     KdGain,
+    Precision,
 ); 1] = [(
     0,
     "channel-29",
@@ -30,6 +33,7 @@ const IBC_TOKENS: [(
     500_000_000, // 500 OSMO
     "10000",
     "10000",
+    100_000, // 0.1 OSMO
 )];
 
 #[transaction]
@@ -42,8 +46,16 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         .unwrap_or_default();
 
     // Enable shielded set rewards for ibc tokens
-    for (denomination, channel_id, base_token, max_reward, target_locked_amount, kp, kd) in
-        IBC_TOKENS
+    for (
+        denomination,
+        channel_id,
+        base_token,
+        max_reward,
+        target_locked_amount,
+        kp,
+        kd,
+        precision,
+    ) in IBC_TOKENS
     {
         let ibc_denom = format!("transfer/{channel_id}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom);
@@ -58,6 +70,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
             token::storage_key::masp_locked_amount_target_key(&token_address);
         let shielded_token_kp_gain_key = token::storage_key::masp_kp_gain_key(&token_address);
         let shielded_token_kd_gain_key = token::storage_key::masp_kd_gain_key(&token_address);
+        let precision_key = token::storage_key::masp_reward_precision_key(&token_address);
 
         // Add the ibc token to the masp token map
         // NOTE: Not needed for the exact mainnet Phase 4 since this logic was included in the Phase 3 proposal
@@ -86,6 +99,7 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         )?;
         ctx.write(&shielded_token_kp_gain_key, Dec::from_str(kp).unwrap())?;
         ctx.write(&shielded_token_kd_gain_key, Dec::from_str(kd).unwrap())?;
+        ctx.write(&precision_key, precision)?;
     }
 
     // Write the token map back to storage
