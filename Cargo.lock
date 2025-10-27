@@ -4039,6 +4039,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "test-incentivizing-after-basic-whitelist"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "thiserror"
 version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"

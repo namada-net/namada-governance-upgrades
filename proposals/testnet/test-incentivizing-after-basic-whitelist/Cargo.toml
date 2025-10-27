@@ -1,0 +1,14 @@
+[package]
+name = "test-incentivizing-after-basic-whitelist"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+namada_tx_prelude_01502.workspace = true
+rlsf.workspace = true
+getrandom.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
