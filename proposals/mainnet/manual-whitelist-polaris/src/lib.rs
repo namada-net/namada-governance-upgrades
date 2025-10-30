@@ -17,7 +17,7 @@ const MINT_LIMIT: u128 = 1_000_000_000; // 1B whole tokens
 const THROUGHPUT_LIMIT: u128 = 1_000_000_000; // 1B whole tokens
 const MINIMUM_GAS_PRICE: u64 = 1;
 
-const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 116] = [
+const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 115] = [
     ("transfer/channel-208/wbtc-satoshi", 8, None), // Wrapped Bitcoin (Ethereum via Axelar)
     ("transfer/channel-208/uusdt", 6, None), // Tether USD (Ethereum via Axelar)
     ("transfer/channel-208/dai-wei", 18, None), // Dai Stablecoin
@@ -77,7 +77,6 @@ const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 116] = [
     ("transfer/channel-208/polygon-weth-wei", 18, None), // Ethereum (Polygon via Axelar)
     ("factory/osmo1k6c8jln7ejuqwtqmay3yvzrg3kueaczl96pk067ldg8u835w0yhsw27twm/alloyed/allETH", 18, None), // Ethereum
     ("factory/osmo1n3n75av8awcnw4jl62n3l48e6e4sxqmaf97w5ua6ddu4s475q5qq9udvx4/alloyed/allSOL", 9, None), // Solana
-    ("ibc/0FA9232B262B89E77D1335D54FB1E1F506A92A7E4B51524B400DC69C68D28372", 6, None), // Penumbra
     ("factory/osmo14mafhhp337yjj2aujplawz0tks6jd2lel4hkwz4agyzhvvztzaqsqzjq8x/alloyed/allTRX", 6, None), // Tron
     ("factory/osmo1nufyzqlm8qhu2w7lm0l4rrax0ec8rsk69mga4tel8eare7c7ljaqpk2lyg/alloyed/allOP", 12, None), // Optimism
     ("transfer/channel-208/op-wei", 18, None), // Optimism (Axelar)
