@@ -17,7 +17,8 @@ const MINT_LIMIT: u128 = 1_000_000_000; // 1B whole tokens
 const THROUGHPUT_LIMIT: u128 = 1_000_000_000; // 1B whole tokens
 const MINIMUM_GAS_PRICE: u64 = 1;
 
-const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 115] = [
+const OSMO_TOKENS: [(BaseToken, Precision, MinimumGasPrice); 116] = [
+    ("uosmo", 6, None), // Penumbra
     ("transfer/channel-208/wbtc-satoshi", 8, None), // Wrapped Bitcoin (Ethereum via Axelar)
     ("transfer/channel-208/uusdt", 6, None), // Tether USD (Ethereum via Axelar)
     ("transfer/channel-208/dai-wei", 18, None), // Dai Stablecoin
