@@ -4317,6 +4317,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "update-gas-costs"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "update-params"
 version = "1.0.0"
 dependencies = [
