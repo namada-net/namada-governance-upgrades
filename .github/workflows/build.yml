@@ -22,12 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         proposal:
-          - path: proposals/template/whitelist-token
-            id: whitelist-token
-          - path: proposals/template/update-params
-            id: update-params
-          - path: proposals/template/update-wasm
-            id: update-wasm
           - path: proposals/mainnet/turn-off-shielded-inflation
             id: turn-off-shielded-inflation
 

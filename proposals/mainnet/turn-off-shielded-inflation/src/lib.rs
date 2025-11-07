@@ -1,9 +1,3 @@
-//! Enable shielded set rewards for IBC tokens.
-//!
-//! This is a good example that demonstrates the activation of shielded set rewards for an existing token
-//! in Namada.
-//!
-
 use dec::Dec;
 use namada_tx_prelude::*;
 use namada_tx_prelude_01502 as namada_tx_prelude;
@@ -13,13 +7,19 @@ pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;
 
 const NEW_REWARD_RATE: &str = "0.0";
-const IBC_TOKENS: [(ChannelId, BaseToken); 6] = [
-    ("channel-1", "uosmo"),
-    ("channel-2", "uatom"),
-    ("channel-3", "utia"),
-    ("channel-0", "stuosmo"),
-    ("channel-0", "stuatom"),
-    ("channel-0", "stutia"),
+const IBC_TOKENS: [(ChannelId, BaseToken); 12] = [
+    ("channel-10", "utia"),
+    ("channel-13", "utia"),
+    ("channel-16", "uatom"),
+    ("channel-15", "stuosmo"),
+    ("channel-15", "stuatom"),
+    ("channel-15", "stutia"),
+    ("channel-17", "utia"),
+    ("channel-7", "uosmo"),
+    ("channel-8", "stuosmo"),
+    ("channel-8", "stutia"),
+    ("channel-8", "statom"),
+    ("channel-9", "uatom"),
 ];
 
 #[transaction]
