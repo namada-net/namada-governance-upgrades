@@ -2,13 +2,15 @@
     "rust-version": "1.85.1",
     "proposal": {
         "content": {
-            "title": "TEST turn off shielded inflation",
-            "details": "Turn off shielded inflation by just setting the max reward rate to 0. Code used to generate the attached wasm is here: "
+            "title": "Adjust Shielded Set Rewards to Align with PMF Experiments.",
+            "authors": "Veil",
+            "discussions-to": "https://forum.namada.net/t/adjusting-shielded-set-rewards-to-align-with-pmf-experiments/1889",
+            "details": "This proposal looks to reduce Shielded Set Reward (SSR) incentives by setting the max_reward_rate parameter of each of the following six tokens to 0: ATOM, OSMO, TIA, stATOM, stOSMO, and stTIA. The goal is to simplify the incentive landscape and ensure Namada’s resources remain focused on current and upcoming product–market fit (PMF) initiatives. Maintaining USDC incentives preserves a stable capital base and supports the asset that has demonstrated the most consistent organic usage, while also creating room to introduce and test new assets aligned with emerging use cases. This proposal does not impact the function of the PID controller as it relates to USDC incentives. In short, it aims to give the community a near-clean slate to support the next phase of experimentation and product alignment."
         },
-        "author": "tnam1qznk3qdth2r4ree2lgy9y459ajnzrke58y363qjq",
-        "voting_start_epoch": 7459,
-        "voting_end_epoch": 7461,
-        "activation_epoch": 7462
+        "author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+        "voting_start_epoch": 1357,
+        "voting_end_epoch": 1380,
+        "activation_epoch": 1381
     },
     "data": []
 }

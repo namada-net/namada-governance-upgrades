@@ -7,19 +7,13 @@ pub type ChannelId = &'static str;
 pub type BaseToken = &'static str;
 
 const NEW_REWARD_RATE: &str = "0.0";
-const IBC_TOKENS: [(ChannelId, BaseToken); 12] = [
-    ("channel-10", "utia"),
-    ("channel-13", "utia"),
-    ("channel-16", "uatom"),
-    ("channel-15", "stuosmo"),
-    ("channel-15", "stuatom"),
-    ("channel-15", "stutia"),
-    ("channel-17", "utia"),
-    ("channel-7", "uosmo"),
-    ("channel-8", "stuosmo"),
-    ("channel-8", "stutia"),
-    ("channel-8", "statom"),
-    ("channel-9", "uatom"),
+const IBC_TOKENS: [(ChannelId, BaseToken); 6] = [
+    ("channel-1", "uosmo"),
+    ("channel-2", "uatom"),
+    ("channel-3", "utia"),
+    ("channel-0", "stuosmo"),
+    ("channel-0", "stuatom"),
+    ("channel-0", "stutia"),
 ];
 
 #[transaction]
@@ -28,11 +22,11 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
         let ibc_denom = format!("transfer/{channel_id}/{base_token}");
         let token_address = ibc::ibc_token(&ibc_denom);
 
-        let shielded_token_max_reward_rate_key =
+        let shielded_token_max_rewards_key =
             token::storage_key::masp_max_reward_rate_key(&token_address);
 
         ctx.write(
-            &shielded_token_max_reward_rate_key,
+            &shielded_token_max_rewards_key,
             Dec::from_str(NEW_REWARD_RATE).unwrap(),
         )?;
     }
