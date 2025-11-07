@@ -1,0 +1,16 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "content": {
+            "title": "Turn off PGF inflation.",
+            "authors": "Insert author",
+            "discussions-to": "Insert forum discussion",
+            "details": "This proposal turns off PGF inflation by setting the inflation rate to 0."
+        },
+        "author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+        "voting_start_epoch": 1357,
+        "voting_end_epoch": 1380,
+        "activation_epoch": 1381
+    },
+    "data": []
+}

@@ -22,14 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         proposal:
-          - path: proposals/template/whitelist-token
-            id: whitelist-token
-          - path: proposals/template/update-params
-            id: update-params
-          - path: proposals/template/update-wasm
-            id: update-wasm
-          - path: proposals/mainnet/update-staking-inflation-parameters
-            id: update-staking-inflation-parameters
+          - path: proposals/mainnet/turn-off-pgf-inflation
+            id: turn-off-pgf-inflation
 
     env:
       GIT_LFS_SKIP_SMUDGE: 1
