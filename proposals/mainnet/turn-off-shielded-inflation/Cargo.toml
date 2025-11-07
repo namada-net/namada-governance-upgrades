@@ -1,5 +1,5 @@
 [package]
-name = "update-staking-inflation-parameters"
+name = "turn-off-shielded-inflation"
 description = "WASM transaction to update staking inflation parameters."
 authors.workspace = true
 edition.workspace = true
