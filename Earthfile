@@ -9,7 +9,9 @@ install:
   ARG RUST_VERSION
   FROM rust:${RUST_VERSION}-bookworm
 
-  RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-tools-14
+  RUN apt-get update && apt-get install -y protobuf-compiler build-essential clang-14 clang-tools-14 && \
+      ln -s /usr/bin/clang-14 /usr/bin/clang && \
+      ln -s /usr/bin/clang++-14 /usr/bin/clang++
 
   RUN rustup component add clippy rustfmt
   RUN rustup target add wasm32-unknown-unknown
