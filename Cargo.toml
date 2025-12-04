@@ -21,10 +21,8 @@ license = "GPL-3.0"
 version = "1.0.0"
 
 [workspace.dependencies]
-namada_tx_prelude_01502 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.150.2" }
-namada_tx_prelude_02512 = { package = "namada_tx_prelude", git = "https://github.com/anoma/namada", tag = "libs-v0.251.2" }
-namada_proof_of_stake_01502 = { package = "namada_proof_of_stake", git = "https://github.com/anoma/namada", tag = "libs-v0.150.2" }
-namada_proof_of_stake_02512 = { package = "namada_proof_of_stake", git = "https://github.com/anoma/namada", tag = "libs-v0.251.2" }
+namada_tx_prelude = { package = "namada_tx_prelude", git = "https://github.com/namada-net/namada", tag = "libs-v0.251.4" }
+namada_proof_of_stake = { package = "namada_proof_of_stake", git = "https://github.com/namada-net/namada", tag = "libs-v0.251.4" }
 
 rlsf = "0.2.1"
 getrandom = { version = "0.2", features = ["custom"] }
