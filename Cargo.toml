@@ -11,7 +11,7 @@ members = [
     "proposals/mainnet_phases/phase5a",
     "proposals/mainnet_phases/phase5b",
     "proposals/mainnet/update-staking-inflation-parameters",
-    "proposals/testnet/add-uusdc-gas-token",
+    "proposals/testnet/add-uusdc-gas-token", "proposals/template/whitelist-channel-unlimited",
 ]
 
 [workspace.package]
@@ -21,8 +21,9 @@ license = "GPL-3.0"
 version = "1.0.0"
 
 [workspace.dependencies]
-namada_tx_prelude = { package = "namada_tx_prelude", git = "https://github.com/namada-net/namada", tag = "libs-v0.251.4" }
-namada_proof_of_stake = { package = "namada_proof_of_stake", git = "https://github.com/namada-net/namada", tag = "libs-v0.251.4" }
+namada_tx_prelude = { package = "namada_tx_prelude", git = "https://github.com/namada-net/namada", tag = "v201.0.7" }
+namada_proof_of_stake = { package = "namada_proof_of_stake", git = "https://github.com/namada-net/namada", tag = "v201.0.7" }
+namada_ibc = { package = "namada_ibc", git = "https://github.com/namada-net/namada", tag = "v201.0.7" }
 
 rlsf = "0.2.1"
 getrandom = { version = "0.2", features = ["custom"] }
