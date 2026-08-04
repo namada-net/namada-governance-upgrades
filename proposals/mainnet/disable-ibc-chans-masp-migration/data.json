@@ -1,0 +1,15 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "title": "Disable compromised MASP IBC tokens and migrate to new channels",
+        "authors": "Heliax AG <hello@heliax.dev>",
+        "discussions-to": "",
+        "abstract": "Migrate IBC tokens off compromised MASP channels by disabling rate limits and inflation on the old channels and enabling fresh tokens on new channels.",
+        "motivation": "A MASP Groth16 proof verification bug allowed draining the pool while leaving notes unspent. The pool is fully compromised, so existing IBC tokens are disabled and replaced with fresh tokens originating from new IBC channels.",
+        "details": "For each (old_channel, base_token, new_channel) entry, this proposal zeroes the IBC rate limits and MASP inflation parameters of the old token, removes it from the gas-cost map and the MASP token map, then initializes rate limits, reward state (zeroed), and token-map entry for the new token.",
+        "author": "tnam1qxfj3sf6a0meahdu9t6znp05g8zx4dkjtgyn9gfu",
+        "voting_start_epoch": 6,
+        "voting_end_epoch": 12,
+        "activation_epoch": 18
+    }
+}

@@ -776,6 +776,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "disable-ibc-chans-masp-migration"
+version = "1.0.0"
+dependencies = [
+ "getrandom 0.2.16",
+ "namada_tx_prelude",
+ "rlsf",
+]
+
+[[package]]
 name = "displaydoc"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
