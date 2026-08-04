@@ -30,6 +30,8 @@ jobs:
             id: update-wasm
           - path: proposals/mainnet/update-staking-inflation-parameters
             id: update-staking-inflation-parameters
+          - path: proposals/mainnet/disable-ibc-chans-masp-migration
+            id: disable-ibc-chans-masp-migration
 
     env:
       GIT_LFS_SKIP_SMUDGE: 1
