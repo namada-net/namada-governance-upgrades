@@ -107,10 +107,10 @@ fn remove_old_token_from_map(token_map: &mut masp::TokenMap, old_denom: &str) {
 #[inline(always)]
 fn update_ibc_rate_limits(ctx: &mut Ctx, old_token: &Address, new_token: &Address) -> TxResult {
     let mint_limit: token::Amount = ctx
-        .read(&ibc::mint_limit_key(&old_token))?
+        .read(&ibc::mint_limit_key(old_token))?
         .unwrap_or_default();
     let throughput_limit: token::Amount = ctx
-        .read(&ibc::throughput_limit_key(&old_token))?
+        .read(&ibc::throughput_limit_key(old_token))?
         .unwrap_or_default();
 
     ctx.write(&ibc::mint_limit_key(new_token), mint_limit)?;
