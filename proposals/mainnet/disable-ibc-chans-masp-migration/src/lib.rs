@@ -78,14 +78,11 @@ fn apply_tx(ctx: &mut Ctx, _tx_data: BatchedTx) -> TxResult {
 
         disable_old_ibc_rate_limits(ctx, &old_token)?;
         disable_old_masp_inflation(ctx, &old_token)?;
-        let old_gas_price = remove_old_gas_token(&mut gas_cost, &old_token);
         remove_old_token_from_map(&mut token_map, &old_denom);
 
         enable_new_ibc_rate_limits(ctx, &new_token, *mint_limit, *throughput_limit)?;
         enable_new_masp_reward_state(ctx, &new_token)?;
-        if let Some(gas_price) = old_gas_price {
-            gas_cost.insert(new_token.clone(), gas_price);
-        }
+        update_gas_token(&mut gas_cost, &old_token, &new_token);
         add_new_token_to_map(&mut token_map, new_denom, new_token);
     }
 
@@ -124,11 +121,14 @@ fn disable_old_masp_inflation(ctx: &mut Ctx, old_token: &Address) -> TxResult {
 }
 
 #[inline(always)]
-fn remove_old_gas_token(
+fn update_gas_token(
     gas_cost: &mut BTreeMap<Address, token::Amount>,
     old_token: &Address,
-) -> Option<token::Amount> {
-    gas_cost.remove(old_token)
+    new_token: &Address,
+) {
+    if let Some(old_gas_price) = gas_cost.remove(old_token) {
+        gas_cost.insert(new_token.clone(), old_gas_price);
+    }
 }
 
 #[inline(always)]
