@@ -11,6 +11,7 @@ members = [
     "proposals/mainnet_phases/phase5a",
     "proposals/mainnet_phases/phase5b",
     "proposals/mainnet/update-staking-inflation-parameters",
+    "proposals/mainnet/disable-ibc-chans-masp-migration",
     "proposals/testnet/add-uusdc-gas-token",
 ]
 
