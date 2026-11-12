@@ -1,0 +1,15 @@
+[package]
+name = "disable-masp-rewards"
+description = "Disable MASP rewards for legacy IBC channel tokens."
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+namada_tx_prelude.workspace = true
+rlsf.workspace = true
+getrandom.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
