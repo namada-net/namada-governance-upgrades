@@ -1,0 +1,15 @@
+{
+    "rust-version": "1.85.1",
+    "proposal": {
+        "title": "Disable MASP rewards for legacy IBC channel tokens",
+        "authors": "Heliax AG <hello@heliax.dev>",
+        "discussions-to": "https://forum.namada.net/c/mainnet-ops",
+        "abstract": "Disable MASP rewards on the IBC tokens originating from the old, compromised channels.",
+        "motivation": "This proposal disables rewards on legacy tokens.",
+        "details": "For each IBC token, this proposal sets the MASP max reward rate to zero, essentially disabling reward minting from MASP conversions.",
+        "author": "tnam1qxfj3sf6a0meahdu9t6znp05g8zx4dkjtgyn9gfu",
+        "voting_start_epoch": 2799,
+        "voting_end_epoch": 2827,
+        "activation_epoch": 2835
+    }
+}
